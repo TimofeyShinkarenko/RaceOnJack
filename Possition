@@ -1,0 +1,31 @@
+class Possition
+{
+    field int X;
+    field int Y;
+   
+    constructor Car(int x, int y)
+    {
+        let X = x;
+        let Y = y;
+
+        return this;
+    }
+
+    method void VectorChangePossition (int x, int y) 
+    {
+        let X = X + x;
+        let Y = Y + y;
+
+        return;
+    }
+
+    method boolean Equal(Possition other)
+    {
+        if (other.X = X & other.Y = Y)
+        {
+            return true;
+        }
+
+        return false;
+    }
+}
