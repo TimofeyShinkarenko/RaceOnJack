@@ -2,28 +2,40 @@ class Car
 {
     field Possition CurrentPossition;
 
-    constructor Car(Possition StartPossiton)
+    constructor Car new(Possition StartPossiton)
     {
         let CurrentPossition = StartPossiton;
 
         return this;
     }
 
-    method void PrintCar () 
+    method void PrintCar() 
     {
         // Отрисовка машины по её текущему положению
 
         return;
     }
 
-    method void MoveRigth () 
+    method int GetCurrentPossition()
+   {
+      return CurrentPossition;
+   }
+
+   method void dispose()
+   {
+      do Memory.deAlloc(this);
+
+      return;
+   }
+
+    method void MoveRigth() 
     {
         do CurrentPossition.VectorChangePossition(32, 0);
 
         return;
     }
 
-    method void MoveLeft () 
+    method void MoveLeft() 
     {
         do CurrentPossition.VectorChangePossition(-32, 0);
 
@@ -36,11 +48,11 @@ class Car
         let keyToMove = Keyboard.keyPressed();
         if (keyToMove = 130)
         {
-            do this.MoveLeft();
+            do MoveLeft();
         }
         if (keyToMove = 132)
         {
-            do this.MoveRigth();
+            do MoveRigth();
         }
 
         return;

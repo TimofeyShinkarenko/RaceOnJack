@@ -3,7 +3,7 @@ class Obstacle
     field Possition CurrentPossition;
     field int Type;
 
-    constructor Obstacle(Possition startPossitonossition, int type)
+    constructor Obstacle new(Possition startPossitonossition, int type)
     {
         let CurrentPossition = startPossitonossition;
         let Type = type;
@@ -14,7 +14,7 @@ class Obstacle
     // Вывод данного экземпляра препятствия
     method void PrintThisObstacle () 
     {
-        do ObstacleTexture.PrintObstacle(type);
+        do ObstacleTexture.PrintObstacle(Type);
 
         return;
     }

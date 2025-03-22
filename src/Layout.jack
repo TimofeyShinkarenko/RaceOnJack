@@ -17,7 +17,7 @@ class Layout
 
     function void PrintLoseScreen (Score score) 
     {
-        do score.PrintCurrentScore();
+        //do score.PrintCurrentScore();
         // Выводим на экран заставку: "Press Enter to restart or ESC to escape."
 
         return;
@@ -25,14 +25,13 @@ class Layout
 
     function void PrintCurrentState(Car car, Array obstacls, Score score, int length)
     {
-        do car.PrintCar();
-        do score.PrintCurrentScore();
-
+        //do car.PrintCar();
+        //do score.PrintCurrentScore();
         var int i;
         let i = 0;
         while (i < length)
         {
-            do obstacls[i].PrintThisObstacle();
+            //do obstacls[i].PrintThisObstacle();
             let i = i + 1;
         }
 

@@ -1,10 +1,36 @@
 class Game
 {
+    field Score Score;
+    field Car MyCar;
+    field Array Obstacls;
+    field int CurrentTick;
+    field int TickTime;
+    field int MinTickTime;
+    field int NumberOfObstacls;
+    field Possition StartPossiton;
+
+    constructor Game new()
+    {
+        let TickTime = 1000;
+        let Score = Score.new();
+        let CurrentTick = 0;
+        let MinTickTime = 100;
+        let NumberOfObstacls = 10;
+
+        let StartPossition = Possition.new(128, 128);
+        let Car = Car.new(StartPossition);
+
+        let Obstacls = Array.new(NumberOfObstacls);
+        // Заполнить массив препятствиями
+
+        return this;
+    }
+
+
     // Ждём пока пользователь нажмёт Enter, чтобы начать игру
-    method void StartGame () 
+    method void StartGame() 
     {
         do Layout.PrintSplashScreen();
-
         var char pressedKey;
         let pressedKey = Keyboard.keyPressed();
 
@@ -16,33 +42,6 @@ class Game
         return;
     }
 
-    field Score Score;
-    field Car MyCar;
-    field Array Obstacls;
-    field int CurrentTick;
-    field int TickTime;
-    field int MinTickTime;
-    field int NumberOfObstacls;
-
-
-    constructor Game()
-    {
-        let TickTime = 1000;
-        let Score = Score.new();
-        let CurrentTick = 0;
-        let MinTickTime = 100;
-        let NumberOfObstacls = 10;
-
-        var Possition startPossitonossition;
-        let startPossitonossition = Possition.new(128, 128);
-        let Car = Car.new(startPossitonossition);
-
-        let Obstacls = Array.new(NumberOfObstacls);
-        // Заполнить массив препятствиями
-
-        return this;
-    }
-
     method boolean CheckAlive()
     {
         var boolean IsCarAlive;
@@ -52,10 +51,11 @@ class Game
         let i = 0;
         while (i < NumberOfObstacls)
         {
-            if (MyCar.CurrentPossition.Equal(obstacls[i].CurrentPossition))
+            if (MyCar.GetCurrentPossition.Equal(obstacls[i].GetCurrentPossition))
             {
                 return false;
             }
+            let i = i + 1;
         }
 
         return true;
@@ -68,6 +68,7 @@ class Game
         while (i < NumberOfObstacls)
         {
             do obstacls[i].ChangePossitionForTickTime();
+            let i = i + 1;
         }
 
         return;
@@ -76,7 +77,7 @@ class Game
     method void Play()
     {
         var boolean carAlive;
-        var carAlive = true;
+        let carAlive = true;
 
         while (carAlive = true)
         {

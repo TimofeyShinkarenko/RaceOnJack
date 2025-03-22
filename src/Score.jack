@@ -2,13 +2,18 @@ class Score {
     field int CurrentScore;
     field int AddedScoreForTick;
 
-    constructor Score(int addedScoreForTick)
+    constructor Score new(int addedScoreForTick)
     {
         let CurrentScore = 0;
         let AddedScoreForTick = addedScoreForTick;
 
         return this;
     }
+
+    method int GetCurrentScore()
+   {
+      return CurrentScore;
+   }
 
     method void AddScoreForTickTime () 
     {
@@ -23,4 +28,11 @@ class Score {
 
         return;
     }
+
+    method void dispose()
+   {
+      do Memory.deAlloc(this);
+
+      return;
+   }
 }

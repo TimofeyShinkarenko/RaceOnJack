@@ -5,17 +5,17 @@ class ObstacleTexture
     {
         if (type = 1)
         {
-            ObstacleTexture.PrintVariant1();
+            do ObstacleTexture.PrintVariant1();
         }
 
         if (type = 2)
         {
-            ObstacleTexture.PrintVariant2();
+            do ObstacleTexture.PrintVariant2();
         }
 
         if (type = 3)
         {
-            ObstacleTexture.PrintVariant3();
+            do ObstacleTexture.PrintVariant3();
         }
 
         return;
