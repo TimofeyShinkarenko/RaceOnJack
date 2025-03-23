@@ -1,0 +1,42 @@
+function ObstacleTexture.PrintObstacle 0
+    push argument 0
+    push constant 1
+    eq
+    not
+    if-goto ObstacleTexture_1
+    call ObstacleTexture.PrintVariant1 0
+    pop temp 0
+    goto ObstacleTexture_0
+label ObstacleTexture_1
+label ObstacleTexture_0
+    push argument 0
+    push constant 2
+    eq
+    not
+    if-goto ObstacleTexture_3
+    call ObstacleTexture.PrintVariant2 0
+    pop temp 0
+    goto ObstacleTexture_2
+label ObstacleTexture_3
+label ObstacleTexture_2
+    push argument 0
+    push constant 3
+    eq
+    not
+    if-goto ObstacleTexture_5
+    call ObstacleTexture.PrintVariant3 0
+    pop temp 0
+    goto ObstacleTexture_4
+label ObstacleTexture_5
+label ObstacleTexture_4
+    push constant 0
+    return
+function ObstacleTexture.PrintVariant1 0
+    push constant 0
+    return
+function ObstacleTexture.PrintVariant2 0
+    push constant 0
+    return
+function ObstacleTexture.PrintVariant3 0
+    push constant 0
+    return

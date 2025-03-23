@@ -1,0 +1,55 @@
+function Possition.new 0
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push argument 1
+    pop this 1
+    push pointer 0
+    return
+function Possition.VectorChangePossition 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push argument 1
+    add
+    pop this 0
+    push this 1
+    push argument 2
+    add
+    pop this 1
+    push constant 0
+    return
+function Possition.GetY 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    return
+function Possition.GetX 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function Possition.Equal 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    call Possition.GetX 1
+    push this 0
+    eq
+    push argument 1
+    call Possition.GetY 1
+    and
+    push this 1
+    eq
+    not
+    if-goto Possition_1
+    push constant 1
+    neg
+    return
+    goto Possition_0
+label Possition_1
+label Possition_0
+    push constant 0
+    return
