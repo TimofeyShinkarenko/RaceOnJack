@@ -17,7 +17,7 @@ class Game
         let MinTickTime = 100;
         let NumberOfObstacls = 10;
 
-        let StartPossition = Possition.new(128, 128);
+        let StartPossition = Possition.new(256, 128);
         let MyCar = Car.new(StartPossition);
 
         let Obstacls = Array.new(NumberOfObstacls);

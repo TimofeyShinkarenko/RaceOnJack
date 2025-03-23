@@ -61,6 +61,10 @@ class Layout
     {
         var int i;
         var Obstacle obstacle;
+        var Possition position;
+        var int location;
+        let position = car.GetCurrentPossition();
+        let location = position.GetLocation();
         let i = 0;
 
         do car.PrintCar();

@@ -1,0 +1,518 @@
+function Car.new 0
+    push constant 1
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push pointer 0
+    return
+function Car.PrintCar 2
+    push argument 0
+    pop pointer 0
+    push this 0
+    call Possition.GetLocation 1
+    pop local 1
+    push local 1
+    push constant 16384
+    add
+    pop local 0
+    push local 0
+    push constant 128
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 32
+    add
+    push constant 448
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 64
+    add
+    push constant 224
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 96
+    add
+    push constant 112
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 128
+    add
+    push constant 56
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 160
+    add
+    push constant 4
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 192
+    add
+    push constant 4
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 224
+    add
+    push constant 508
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 256
+    add
+    push constant 388
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 288
+    add
+    push constant 354
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 320
+    add
+    push constant 531
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 352
+    add
+    push constant 1075
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 384
+    add
+    push constant 429
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 416
+    add
+    push constant 403
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 448
+    add
+    push constant 82
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 480
+    add
+    push constant 84
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 512
+    add
+    push constant 76
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 544
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 576
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 608
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 640
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 672
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 704
+    add
+    push constant 44
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 736
+    add
+    push constant 74
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 768
+    add
+    push constant 83
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 800
+    add
+    push constant 83
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 832
+    add
+    push constant 147
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 864
+    add
+    push constant 173
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 896
+    add
+    push constant 594
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 928
+    add
+    push constant 292
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 960
+    add
+    push constant 56
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 992
+    add
+    push constant 16
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1024
+    add
+    push constant 32
+    neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1056
+    add
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    push constant 31
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 33
+    add
+    push constant 39
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 65
+    add
+    push constant 79
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 97
+    add
+    push constant 159
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 129
+    add
+    push constant 319
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 161
+    add
+    push constant 1023
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 193
+    add
+    push constant 1023
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 225
+    add
+    push constant 1016
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 257
+    add
+    push constant 999
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 289
+    add
+    push constant 1943
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 321
+    add
+    push constant 2939
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 353
+    add
+    push constant 2877
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 385
+    add
+    push constant 2904
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 417
+    add
+    push constant 2919
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 449
+    add
+    push constant 1887
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 481
+    add
+    push constant 863
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 513
+    add
+    push constant 735
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 545
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 577
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 609
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 641
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 673
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 705
+    add
+    push constant 703
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 737
+    add
+    push constant 1759
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 769
+    add
+    push constant 2911
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 801
+    add
+    push constant 2911
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 833
+    add
+    push constant 2927
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 865
+    add
+    push constant 2896
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 897
+    add
+    push constant 1883
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 929
+    add
+    push constant 951
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 961
+    add
+    push constant 448
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 993
+    add
+    push constant 255
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1025
+    add
+    push constant 127
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1057
+    add
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    push constant 0
+    return
+function Car.GetCurrentPossition 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function Car.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function Car.MoveRigth 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 32
+    push constant 0
+    call Possition.VectorChangePossition 3
+    pop temp 0
+    push constant 0
+    return
+function Car.MoveLeft 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 32
+    neg
+    push constant 0
+    call Possition.VectorChangePossition 3
+    pop temp 0
+    push constant 0
+    return
+function Car.ManagedDirection 1
+    push argument 0
+    pop pointer 0
+    call Keyboard.keyPressed 0
+    pop local 0
+    push local 0
+    push constant 130
+    eq
+    not
+    if-goto Car_1
+    push pointer 0
+    call Car.MoveLeft 1
+    pop temp 0
+    goto Car_0
+label Car_1
+label Car_0
+    push local 0
+    push constant 132
+    eq
+    not
+    if-goto Car_3
+    push pointer 0
+    call Car.MoveRigth 1
+    pop temp 0
+    goto Car_2
+label Car_3
+label Car_2
+    push constant 0
+    return
