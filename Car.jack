@@ -1,0 +1,158 @@
+class Car 
+{
+    field Possition CurrentPossition;
+
+    constructor Car new(Possition StartPossiton)
+    {
+        let CurrentPossition = StartPossiton;
+
+        return this;
+    }
+
+    method void PrintCar() 
+    {
+        var int memAddress; 
+        var int location;
+        let location = CurrentPossition.GetLocation();
+	    let memAddress = location + 16384;
+	    // column 0 16384
+	    do Memory.poke(memAddress, -128);
+        do Memory.poke(memAddress +32, -448);
+        do Memory.poke(memAddress +64, -224);
+        do Memory.poke(memAddress +96, -112);
+        do Memory.poke(memAddress +128, -56);
+        do Memory.poke(memAddress +160, -4);
+        do Memory.poke(memAddress +192, -4);
+        do Memory.poke(memAddress +224, 508);
+        do Memory.poke(memAddress +256, -388);
+        do Memory.poke(memAddress +288, -354);
+        do Memory.poke(memAddress +320, -531);
+        do Memory.poke(memAddress +352, -1075);
+        do Memory.poke(memAddress +384, 429);
+        do Memory.poke(memAddress +416, -403);
+        do Memory.poke(memAddress +448, -82);
+        do Memory.poke(memAddress +480, -84);
+        do Memory.poke(memAddress +512, -76);
+        do Memory.poke(memAddress +544, -44);
+        do Memory.poke(memAddress +576, -44);
+        do Memory.poke(memAddress +608, -44);
+        do Memory.poke(memAddress +640, -44);
+        do Memory.poke(memAddress +672, -44);
+        do Memory.poke(memAddress +704, -44);
+        do Memory.poke(memAddress +736, -74);
+        do Memory.poke(memAddress +768, -83);
+        do Memory.poke(memAddress +800, -83);
+        do Memory.poke(memAddress +832, -147);
+        do Memory.poke(memAddress +864, 173);
+        do Memory.poke(memAddress +896, -594);
+        do Memory.poke(memAddress +928, -292);
+        do Memory.poke(memAddress +960, 56);
+        do Memory.poke(memAddress +992, -16);
+        do Memory.poke(memAddress +1024, -32);
+        do Memory.poke(memAddress +1056, 0);
+        // column 1
+        do Memory.poke(memAddress +1, 31);
+        do Memory.poke(memAddress +33, 39);
+        do Memory.poke(memAddress +65, 79);
+        do Memory.poke(memAddress +97, 159);
+        do Memory.poke(memAddress +129, 319);
+        do Memory.poke(memAddress +161, 1023);
+        do Memory.poke(memAddress +193, 1023);
+        do Memory.poke(memAddress +225, 1016);
+        do Memory.poke(memAddress +257, 999);
+        do Memory.poke(memAddress +289, 1943);
+        do Memory.poke(memAddress +321, 2939);
+        do Memory.poke(memAddress +353, 2877);
+        do Memory.poke(memAddress +385, 2904);
+        do Memory.poke(memAddress +417, 2919);
+        do Memory.poke(memAddress +449, 1887);
+        do Memory.poke(memAddress +481, 863);
+        do Memory.poke(memAddress +513, 735);
+        do Memory.poke(memAddress +545, 703);
+        do Memory.poke(memAddress +577, 703);
+        do Memory.poke(memAddress +609, 703);
+        do Memory.poke(memAddress +641, 703);
+        do Memory.poke(memAddress +673, 703);
+        do Memory.poke(memAddress +705, 703);
+        do Memory.poke(memAddress +737, 1759);
+        do Memory.poke(memAddress +769, 2911);
+        do Memory.poke(memAddress +801, 2911);
+        do Memory.poke(memAddress +833, 2927);
+        do Memory.poke(memAddress +865, 2896);
+        do Memory.poke(memAddress +897, 1883);
+        do Memory.poke(memAddress +929, 951);
+        do Memory.poke(memAddress +961, 448);
+	    do Memory.poke(memAddress +993, 255);
+	    do Memory.poke(memAddress +1025, 127);
+	    do Memory.poke(memAddress +1057, 0);
+	    return;
+    }
+
+    method void EraseCar()
+    {
+        var int memAddress; 
+        var int location;
+        var int i;
+        let i = 0;
+        let location = CurrentPossition.GetLocation();
+	    let memAddress = location + 16384;
+	    // column 0 16384
+        while (i < 34)
+        {
+            do Memory.poke(memAddress + (32 * i), 0);
+            do Memory.poke(memAddress + (32 * i) + 1, 0);
+            let i = i + 1;
+        }
+        return;
+    }
+
+    method Possition GetCurrentPossition()
+   {
+      return CurrentPossition;
+   }
+
+   method void dispose()
+   {
+      do Memory.deAlloc(this);
+
+      return;
+   }
+
+    method void MoveRigth() 
+    {
+
+        do CurrentPossition.VectorChangePossition(48, 0);
+
+        return;
+    }
+
+    method void MoveLeft() 
+    {
+        do CurrentPossition.VectorChangePossition(-48, 0);
+
+        return;
+    }
+
+    method void ManagedDirection()
+    {
+        var char keyToMove;
+        let keyToMove = Keyboard.keyPressed();
+        if (keyToMove = 130)
+        {
+            if (CurrentPossition.GetX() > 220)
+            {
+                do EraseCar();
+                do MoveLeft();
+            }
+        }
+        if (keyToMove = 132)
+        {
+            if (CurrentPossition.GetX() < 250)
+            {
+                do EraseCar();
+                do MoveRigth();
+            }
+        }
+        return;
+    }
+}

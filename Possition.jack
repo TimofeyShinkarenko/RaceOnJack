@@ -1,0 +1,58 @@
+class Possition
+{
+    field int X;
+    field int Y;
+   
+    constructor Possition new(int x, int y)
+    {
+        let X = x;
+        let Y = y;
+
+        return this;
+    }
+
+    method void VectorChangePossition (int x, int y) 
+    {
+        let X = X + x;
+        let Y = Y + y;
+
+        return;
+    }
+
+    method int GetY()
+    {
+        return Y;
+    }
+
+    method int GetX()
+    {
+        return X;
+    }
+
+    method boolean Equal(Possition other)
+    {
+        if (other.GetX() = X & other.GetY() = Y)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    method boolean IsUnder(Possition other)
+    {
+        if (other.GetY() < GetY())
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    method int GetLocation()
+    {
+        var int location;
+        let location = (X / 16) + (Y * 32);
+        return location;
+    }
+}

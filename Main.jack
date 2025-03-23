@@ -1,14 +1,14 @@
 class Main 
 {
-    method void main () 
+    function void main() 
     {
+        var Game game;
         while (true)
-        {
-            var Game game;
+        { 
             let game = Game.new();
-
             do game.StartGame();
             do game.Play();
+            do Screen.clearScreen();
         }
 
         return;

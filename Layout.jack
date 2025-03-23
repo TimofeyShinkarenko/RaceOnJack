@@ -1,0 +1,109 @@
+class Layout
+{
+    /*field String helloMessage;
+    field String loseMessage;
+
+    constructor Layout new()
+    {
+        let helloMessage = "Press anything to start!";
+        let loseMessage = "Press Enter to restart or ESC to escape.";
+
+        return this;
+    }*/
+
+    function void PrintSplashScreen () 
+    {
+        // Выводим на экран заставку: "Press Enter to start!"
+        var String helloMessage;
+        let helloMessage = "Press anything to start!";
+        do Output.moveCursor(9, 16);
+        do Output.printString(helloMessage);
+        return;
+    }
+    function void HideSplashScreen()
+    {
+        /*do Memory.deAlloc(helloMessage);*/
+        var String nothing;
+        let nothing = "                         ";
+        do Output.moveCursor(9, 16);
+        do Output.printString(nothing);
+        do Output.moveCursor(9, 16);
+        return;
+    }
+
+    function void PrintField() 
+    {
+        do Screen.drawLine(174, 0, 174, 256);
+        do Screen.drawLine(175, 0, 175, 256);
+        do Screen.drawLine(326, 0, 326, 256);
+        do Screen.drawLine(327, 0, 327, 256);
+        return;
+    }
+
+    function void PrintLoseScreen (Score score) 
+    {
+        var String loseMessage;
+        do Screen.clearScreen();
+        let loseMessage = "Press Enter to restart or ESC to escape.";
+
+        do score.PrintCurrentScore();
+        // Выводим на экран заставку: "Press Enter to restart or ESC to escape."
+        do Output.printString(loseMessage);
+        return;
+    }
+
+    function void PrintCurrentState(Car car, Score score, int currentSpeed, int tick)
+    {
+        var int i;
+        var Possition position;
+        var int location;
+        let position = car.GetCurrentPossition();
+        let location = position.GetLocation();
+        let i = 0;
+
+        do Layout.PrintCrossLines(MathExtension.mod(tick, 8));
+        do score.PrintCurrentScore();
+        do Layout.PrintSpeed(currentSpeed);
+      
+        return;
+    }
+
+    function void PrintCrossLines(int offset)
+    {
+        var int i;
+        let i = 0;
+        while (i < 24)
+        {
+            do Screen.drawLine(230, MathExtension.mod(i * 8 + offset * 4, 256), 230, MathExtension.mod((i + 1) * 8 + offset * 4, 256));
+            do Screen.drawLine(229, MathExtension.mod(i * 8 + offset * 4, 256), 229, MathExtension.mod((i + 1) * 8 + offset * 4, 256));
+            do Screen.drawLine(281, MathExtension.mod(i * 8 + offset * 4, 256), 281, MathExtension.mod((i + 1) * 8 + offset * 4, 256));
+            do Screen.drawLine(280, MathExtension.mod(i * 8 + offset * 4, 256), 280, MathExtension.mod((i + 1) * 8 + offset * 4, 256));
+
+            let i = i + 2;
+        }
+
+        return;
+    }
+
+    function void EraseCrossLines() 
+    {
+        do Screen.setColor(true);
+        do Screen.drawLine(230, 0, 230, 256);
+        do Screen.drawLine(229, 0, 229, 256);
+        do Screen.drawLine(281, 0, 281, 256);
+        do Screen.drawLine(280, 0, 280, 256);
+        do Screen.setColor(false);
+
+        return;
+    }
+
+    function void PrintSpeed(int speed)
+    {
+        var String speedMessage;
+        let speedMessage = "Speed:";
+        do Output.moveCursor(13, 45);
+        do Output.printString(speedMessage);
+        do Output.printInt(speed);
+        return;
+    }
+}

@@ -1,0 +1,51 @@
+class Level
+{
+    field Fibonachi fibonachi;
+    field int Tick;
+    constructor Fibonachi new()
+    {
+        let fibonachi = Fibonachi.new();
+        let Tick = 0;
+        
+        return this;
+    }
+
+    method Array CreateLevel(int size)
+    {
+        var Array returnArray;
+        var Obstacle obstacle;
+        var int i; 
+        let i = 0;
+        let returnArray = Array.new(size);
+
+        while (i < size)
+        {
+            let obstacle = GenerateNewObstacle();
+            let returnArray[i] = obstacle;
+            let i = i + 1;
+        }
+
+        return returnArray;
+    }
+
+    method void SetTick(int tick)
+    {
+        let Tick = tick;
+
+        return;
+    }
+
+    method Obstacle GenerateNewObstacle()
+    {
+        var Obstacle obstacle;
+        var int temp;
+        var Possition startPossition;
+        let temp = fibonachi.GetNextValue() + 5;
+        let startPossition = Possition.new(MathExtension.mod(temp, 3) * 48 + 192, 0);
+        let Tick = Tick + MathExtension.mod(temp, 17);
+        
+        let obstacle = Obstacle.new(startPossition, MathExtension.mod(temp * 2 - 1, 3), Tick);
+
+        return obstacle;
+    }
+}

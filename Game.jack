@@ -1,0 +1,161 @@
+class Game
+{
+    field Score CurrentScore;
+    field Car MyCar;
+    field Array Obstacls;
+    field int CurrentTick;
+    field int TickTime;
+    field int MinTickTime;
+    field int NumberOfObstacls;
+    field Possition StartPossition;
+    field int BaseSpeed;
+    field int SpeedCoefficient;
+    field Level LevelGenerator;
+
+    constructor Game new()
+    {
+        let TickTime = 1000;
+        let CurrentScore = Score.new();
+        let CurrentTick = 0;
+        let MinTickTime = 100;
+        let NumberOfObstacls = 7;
+        let BaseSpeed = 30; 
+        let SpeedCoefficient = 2; 
+
+        let StartPossition = Possition.new(240, 208);
+        let MyCar = Car.new(StartPossition);
+        let LevelGenerator = Level.new();
+
+        let Obstacls = Array.new(NumberOfObstacls);
+        // Заполнить массив препятствиями
+
+        return this;
+    }
+
+
+    // Ждём пока пользователь нажмёт Enter, чтобы начать игру
+    method void StartGame() 
+    {
+        var char pressedKey;
+        let pressedKey = Keyboard.keyPressed();
+        
+        do Layout.PrintSplashScreen();
+        while (pressedKey = 0)
+        {
+            let pressedKey = Keyboard.keyPressed();
+        }
+        do Layout.HideSplashScreen();
+        do Layout.PrintField();
+        let Obstacls = LevelGenerator.CreateLevel(NumberOfObstacls);
+        return;
+    }
+
+    method boolean CheckAlive()
+    {
+        var boolean IsCarAlive;
+        var int i;
+        var Possition carPosition;
+        var Obstacle obstacle;
+        var Possition obstaclePossition;
+        var Obstacle newObstacle;
+
+        let IsCarAlive = true;
+        let i = 0;
+        while (i < NumberOfObstacls)
+        {
+
+            let carPosition = MyCar.GetCurrentPossition();
+            let obstacle = Obstacls[i];
+            if (carPosition.Equal(obstacle.GetCurrentPossition()))
+            {
+                return false;
+            }
+        
+            let i = i + 1;
+        }
+
+        return true;
+    }
+
+    method void MoveObstacls()
+    {
+        var int i;
+        var Obstacle obstacle;
+        var Possition obstaclePossition;
+        let i = 0;
+        while (i < NumberOfObstacls)
+        {
+            let obstacle = Obstacls[i];
+            let obstaclePossition = obstacle.GetCurrentPossition();
+            if (obstaclePossition.GetY() = 256)
+            {
+                do obstacle.EraseObstacle();
+                let Obstacls[i] = LevelGenerator.GenerateNewObstacle();
+            }
+            if (obstacle.GetSpawnTick() < CurrentTick)
+            {
+                do obstacle.EraseObstacle();
+                do obstacle.ChangePossitionForTickTime();
+                do obstacle.PrintThisObstacle();
+            }
+            let i = i + 1;
+        }
+
+        return;
+    }
+
+    method void Play()
+    {
+        var boolean carAlive;
+        var int currentSpeed;
+        let carAlive = true;
+
+        while (carAlive = true)
+        {
+            let currentSpeed = CalculateCurrentSpeed();
+            do Layout.EraseCrossLines();
+            do Layout.PrintCurrentState(MyCar, CurrentScore, currentSpeed, CurrentTick);
+            do Sys.wait(TickTime);
+            let CurrentTick = CurrentTick + 1;
+            do LevelGenerator.SetTick(CurrentTick);
+            do MoveObstacls();
+            do CurrentScore.AddScoreForTickTime(currentSpeed);
+            if (TickTime > MinTickTime)
+            {
+                let TickTime = TickTime - 30;
+            }
+            do MyCar.ManagedDirection();
+            do MyCar.PrintCar();
+            let carAlive = CheckAlive();
+        }
+
+        do Layout.PrintLoseScreen(CurrentScore);
+
+        return;
+    }
+
+    method void Restart()
+    {
+        var char key;
+        let key = Keyboard.keyPressed();
+        while (key < 1)
+        {
+            if (key = 140)
+            {
+                do Sys.halt();
+            }
+            if (key > 127)
+            {
+                return;
+            } 
+        }
+
+        return;
+    }
+    method int CalculateCurrentSpeed()
+    {
+        var int currentSpeed;
+        let currentSpeed = BaseSpeed + (SpeedCoefficient * (3000 / TickTime));
+        return currentSpeed;
+    }
+}

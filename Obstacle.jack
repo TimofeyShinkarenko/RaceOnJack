@@ -1,0 +1,63 @@
+class Obstacle 
+{
+    field Possition CurrentPossition;
+    field int Type;
+    field int SpawnTick;
+
+    constructor Obstacle new(Possition startPossition, int type, int tick)
+    {
+        let CurrentPossition = startPossition;
+        let Type = type;
+        let SpawnTick = tick;
+
+        return this;
+    }
+
+    // Вывод данного экземпляра препятствия
+    method void PrintThisObstacle() 
+    {
+        var int location;
+        let location = CurrentPossition.GetLocation();
+        do ObstacleTexture.PrintObstacle(location, Type);
+
+        return;
+    }
+
+    method void EraseObstacle() 
+    {
+        var int location;
+        let location = CurrentPossition.GetLocation();
+        do ObstacleTexture.EraseObstacle(location, Type);
+
+        return;
+    }
+
+    method void ChangePossitionForTickTime()
+    {
+        do CurrentPossition.VectorChangePossition(0, 8);
+
+        return;
+    }
+
+    method Possition GetCurrentPossition()
+    {
+        return CurrentPossition;
+    }
+
+    method int GetType()
+    {
+        return Type;
+    }    
+
+    method int GetSpawnTick()
+    {
+        return SpawnTick;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
+
+        return;
+    }
+}

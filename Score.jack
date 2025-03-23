@@ -1,0 +1,39 @@
+class Score {
+    field int CurrentScore;
+
+    constructor Score new()
+    {
+        let CurrentScore = 0;
+
+        return this;
+    }
+
+    method int GetCurrentScore()
+   {
+      return CurrentScore;
+   }
+
+    method void PrintCurrentScore () 
+    {
+        // Отрисовка счёта
+        var String scoreMessage;
+        let scoreMessage = "Score:";
+        do Output.moveCursor(16, 45);
+        do Output.printString(scoreMessage);
+        do Output.printInt(CurrentScore);
+        return;
+    }
+
+    method void AddScoreForTickTime(int currentSpeed) 
+    {
+        let CurrentScore = CurrentScore + (currentSpeed / 10);
+        return;
+    }
+
+    method void dispose()
+   {
+      do Memory.deAlloc(this);
+
+      return;
+   }
+}
