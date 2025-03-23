@@ -22,12 +22,12 @@ class Layout
     }
     function void HideSplashScreen()
     {
-        /*do Memory.deAlloc(helloMessage);
+        /*do Memory.deAlloc(helloMessage);*/
         var String nothing;
-        let nothing = " ";d
+        let nothing = "                         ";
         do Output.moveCursor(9, 16);
-        do Output.printString(nothing);*/
-        do Output.backSpace();
+        do Output.printString(nothing);
+        do Output.moveCursor(9, 16);
         return;
     }
 
@@ -57,7 +57,7 @@ class Layout
         return;
     }
 
-    function void PrintCurrentState(Car car, Array obstacls, Score score, int length)
+    function void PrintCurrentState(Car car, Array obstacls, Score score, int length, int currentSpeed)
     {
         var int i;
         var Obstacle obstacle;
@@ -69,13 +69,23 @@ class Layout
 
         do car.PrintCar();
         do score.PrintCurrentScore();
+        do Layout.PrintSpeed(currentSpeed);
         while (i < length)
         {  
             let obstacle = obstacls[i];
             do obstacle.PrintThisObstacle();
             let i = i + 1;
         }
+        return;
+    }
 
+    function void PrintSpeed(int speed)
+    {
+        var String speedMessage;
+        let speedMessage = "Speed:";
+        do Output.moveCursor(13, 45);
+        do Output.printString(speedMessage);
+        do Output.printInt(speed);
         return;
     }
 }

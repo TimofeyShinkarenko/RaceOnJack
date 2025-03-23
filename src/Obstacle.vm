@@ -1,18 +1,24 @@
 function Obstacle.new 0
-    push constant 2
+    push constant 3
     call Memory.alloc 1
     pop pointer 0
     push argument 0
     pop this 0
     push argument 1
     pop this 1
+    push argument 2
+    pop this 2
     push pointer 0
     return
-function Obstacle.PrintThisObstacle 0
+function Obstacle.PrintThisObstacle 1
     push argument 0
     pop pointer 0
+    push this 0
+    call Possition.GetLocation 1
+    pop local 0
+    push local 0
     push this 1
-    call ObstacleTexture.PrintObstacle 1
+    call ObstacleTexture.PrintObstacle 2
     pop temp 0
     push constant 0
     return
@@ -35,6 +41,11 @@ function Obstacle.GetType 0
     push argument 0
     pop pointer 0
     push this 1
+    return
+function Obstacle.GetSpawnTick 0
+    push argument 0
+    pop pointer 0
+    push this 2
     return
 function Obstacle.dispose 0
     push argument 0

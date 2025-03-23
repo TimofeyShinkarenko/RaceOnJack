@@ -59,8 +59,70 @@ function Layout.PrintSplashScreen 1
     pop temp 0
     push constant 0
     return
-function Layout.HideSplashScreen 0
-    call Output.backSpace 0
+function Layout.HideSplashScreen 1
+    push constant 25
+    call String.new 1
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    pop local 0
+    push constant 9
+    push constant 16
+    call Output.moveCursor 2
+    pop temp 0
+    push local 0
+    call Output.printString 1
+    pop temp 0
+    push constant 9
+    push constant 16
+    call Output.moveCursor 2
     pop temp 0
     push constant 0
     return
@@ -210,6 +272,9 @@ function Layout.PrintCurrentState 4
     push argument 2
     call Score.PrintCurrentScore 1
     pop temp 0
+    push argument 4
+    call Layout.PrintSpeed 1
+    pop temp 0
 label Layout_0
     push local 0
     push argument 3
@@ -231,5 +296,33 @@ label Layout_0
     pop local 0
     goto Layout_0
 label Layout_1
+    push constant 0
+    return
+function Layout.PrintSpeed 1
+    push constant 6
+    call String.new 1
+    push constant 83
+    call String.appendChar 2
+    push constant 112
+    call String.appendChar 2
+    push constant 101
+    call String.appendChar 2
+    push constant 101
+    call String.appendChar 2
+    push constant 100
+    call String.appendChar 2
+    push constant 58
+    call String.appendChar 2
+    pop local 0
+    push constant 13
+    push constant 45
+    call Output.moveCursor 2
+    pop temp 0
+    push local 0
+    call Output.printString 1
+    pop temp 0
+    push argument 0
+    call Output.printInt 1
+    pop temp 0
     push constant 0
     return

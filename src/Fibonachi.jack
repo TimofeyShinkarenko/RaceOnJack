@@ -1,0 +1,23 @@
+class Fibonachi
+{
+    field int PrevValue;
+    field int CurrentValue;
+
+    constructor Fibonachi new()
+    {
+        let PrevValue = 0;
+        let CurrentValue = 1;
+
+        return this;
+    }
+
+    method int GetNextValue()
+    {
+        var int result;
+        let result = PrevValue + CurrentValue;
+        let PrevValue = CurrentValue;
+        let CurrentValue = result;
+        
+        return result;
+    }
+}

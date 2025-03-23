@@ -2,19 +2,23 @@ class Obstacle
 {
     field Possition CurrentPossition;
     field int Type;
+    field int SpawnTick;
 
-    constructor Obstacle new(Possition startPossition, int type)
+    constructor Obstacle new(Possition startPossition, int type, int tick)
     {
         let CurrentPossition = startPossition;
         let Type = type;
+        let SpawnTick = tick;
 
         return this;
     }
 
     // Вывод данного экземпляра препятствия
-    method void PrintThisObstacle () 
+    method void PrintThisObstacle() 
     {
-        do ObstacleTexture.PrintObstacle(Type);
+        var int location;
+        let location = CurrentPossition.GetLocation();
+        do ObstacleTexture.PrintObstacle(location, Type);
 
         return;
     }
@@ -35,6 +39,11 @@ class Obstacle
    {
       return Type;
    }
+
+   method int GetSpawnTick()
+    {
+        return SpawnTick;
+    }
 
    method void dispose()
    {
