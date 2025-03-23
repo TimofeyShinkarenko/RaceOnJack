@@ -1,37 +1,74 @@
 class Layout
 {
+    /*field String helloMessage;
+    field String loseMessage;
+
+    constructor Layout new()
+    {
+        let helloMessage = "Press anything to start!";
+        let loseMessage = "Press Enter to restart or ESC to escape.";
+
+        return this;
+    }*/
+
     function void PrintSplashScreen () 
     {
         // Выводим на экран заставку: "Press Enter to start!"
-
+        var String helloMessage;
+        let helloMessage = "Press anything to start!";
+        do Output.moveCursor(9, 16);
+        do Output.printString(helloMessage);
+        return;
+    }
+    function void HideSplashScreen()
+    {
+        /*do Memory.deAlloc(helloMessage);
+        var String nothing;
+        let nothing = " ";d
+        do Output.moveCursor(9, 16);
+        do Output.printString(nothing);*/
+        do Output.backSpace();
         return;
     }
 
-    function void PrintField () 
+    function void PrintField() 
     {
         // Тут будет полная отрисовка поля:
         // Граница поля, боковые панели, но не часть с трассой
+        do Screen.drawLine(87, 17, 424, 17);
+        do Screen.drawLine(87, 237, 424, 237);
 
+        do Screen.drawLine(87, 17, 87, 237);
+        do Screen.drawLine(424, 17, 424, 237);
+
+        do Screen.drawLine(179, 17, 179, 237);
+        do Screen.drawLine(356, 17, 356, 237);
         return;
     }
 
     function void PrintLoseScreen (Score score) 
     {
-        //do score.PrintCurrentScore();
-        // Выводим на экран заставку: "Press Enter to restart or ESC to escape."
+        var String loseMessage;
+        let loseMessage = "Press Enter to restart or ESC to escape.";
 
+        do score.PrintCurrentScore();
+        // Выводим на экран заставку: "Press Enter to restart or ESC to escape."
+        do Output.printString(loseMessage);
         return;
     }
 
     function void PrintCurrentState(Car car, Array obstacls, Score score, int length)
     {
-        //do car.PrintCar();
-        //do score.PrintCurrentScore();
         var int i;
+        var Obstacle obstacle;
         let i = 0;
+
+        do car.PrintCar();
+        do score.PrintCurrentScore();
         while (i < length)
-        {
-            //do obstacls[i].PrintThisObstacle();
+        {  
+            let obstacle = obstacls[i];
+            do obstacle.PrintThisObstacle();
             let i = i + 1;
         }
 

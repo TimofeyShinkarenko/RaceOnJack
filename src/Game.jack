@@ -1,24 +1,24 @@
 class Game
 {
-    field Score Score;
+    field Score CurrentScore;
     field Car MyCar;
     field Array Obstacls;
     field int CurrentTick;
     field int TickTime;
     field int MinTickTime;
     field int NumberOfObstacls;
-    field Possition StartPossiton;
+    field Possition StartPossition;
 
     constructor Game new()
     {
         let TickTime = 1000;
-        let Score = Score.new();
+        let CurrentScore = Score.new(1);
         let CurrentTick = 0;
         let MinTickTime = 100;
         let NumberOfObstacls = 10;
 
         let StartPossition = Possition.new(128, 128);
-        let Car = Car.new(StartPossition);
+        let MyCar = Car.new(StartPossition);
 
         let Obstacls = Array.new(NumberOfObstacls);
         // Заполнить массив препятствиями
@@ -30,28 +30,34 @@ class Game
     // Ждём пока пользователь нажмёт Enter, чтобы начать игру
     method void StartGame() 
     {
-        do Layout.PrintSplashScreen();
         var char pressedKey;
         let pressedKey = Keyboard.keyPressed();
-
+        
+        do Layout.PrintSplashScreen();
         while (pressedKey = 0)
         {
             let pressedKey = Keyboard.keyPressed();
         }
-
+        do Layout.HideSplashScreen();
+        do Layout.PrintField();
         return;
     }
 
     method boolean CheckAlive()
     {
         var boolean IsCarAlive;
-        let IsCarAlive = true;
-
         var int i;
+        var Possition carPosition;
+        var Obstacle obstacle;
+
+        let IsCarAlive = true;
         let i = 0;
         while (i < NumberOfObstacls)
         {
-            if (MyCar.GetCurrentPossition.Equal(obstacls[i].GetCurrentPossition))
+
+            let carPosition = MyCar.GetCurrentPossition();
+            let obstacle = Obstacls[i];
+            if (carPosition.Equal(obstacle.GetCurrentPossition()))
             {
                 return false;
             }
@@ -64,10 +70,13 @@ class Game
     method void MoveObstacls()
     {
         var int i;
+        var Obstacle obstacle;
+
         let i = 0;
         while (i < NumberOfObstacls)
         {
-            do obstacls[i].ChangePossitionForTickTime();
+            let obstacle = Obstacls[i];
+            do obstacle.ChangePossitionForTickTime();
             let i = i + 1;
         }
 
@@ -82,7 +91,7 @@ class Game
         while (carAlive = true)
         {
             do Sys.wait(TickTime);
-            do Layout.PrintCurrentState(MyCar, Obstacls, Score, NumberOfObstacls);
+            do Layout.PrintCurrentState(MyCar, Obstacls, CurrentScore, NumberOfObstacls);
             do CurrentScore.AddScoreForTickTime();
             if (TickTime > MinTickTime)
             {
@@ -93,20 +102,20 @@ class Game
             let carAlive = CheckAlive();
         }
 
-        do Layout.PrintLoseScreen();
+        do Layout.PrintLoseScreen(CurrentScore);
 
         return;
     }
 
     method void Restart()
     {
-        var char keyUser;
+        var char key;
         let key = Keyboard.keyPressed();
         while (key = 0)
         {
             if (key = 140)
             {
-                do Sys.halts();
+                do Sys.halt();
             }
             if (key = 128)
             {

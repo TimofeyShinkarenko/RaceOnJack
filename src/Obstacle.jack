@@ -3,9 +3,9 @@ class Obstacle
     field Possition CurrentPossition;
     field int Type;
 
-    constructor Obstacle new(Possition startPossitonossition, int type)
+    constructor Obstacle new(Possition startPossition, int type)
     {
-        let CurrentPossition = startPossitonossition;
+        let CurrentPossition = startPossition;
         let Type = type;
 
         return this;
@@ -25,4 +25,21 @@ class Obstacle
 
         return;
     }
+
+    method Possition GetCurrentPossition()
+   {
+      return CurrentPossition;
+   }
+
+   method int GetType()
+   {
+      return Type;
+   }
+
+   method void dispose()
+   {
+      do Memory.deAlloc(this);
+
+      return;
+   }
 }

@@ -16,7 +16,7 @@ class Car
         return;
     }
 
-    method int GetCurrentPossition()
+    method Possition GetCurrentPossition()
    {
       return CurrentPossition;
    }

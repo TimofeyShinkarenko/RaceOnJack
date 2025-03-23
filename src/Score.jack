@@ -25,7 +25,10 @@ class Score {
     method void PrintCurrentScore () 
     {
         // Отрисовка счёта
-
+        var String scoreMessage;
+        let scoreMessage = "Your score is:";
+        do Output.printString(scoreMessage);
+        do Output.printInt(CurrentScore);
         return;
     }
 
