@@ -91,7 +91,9 @@ class Game
             let obstacle = Obstacls[i];
             if (obstacle.GetSpawnTick() > CurrentTick)
             {
+                do obstacle.EraseObstacle();
                 do obstacle.ChangePossitionForTickTime();
+                do obstacle.PrintThisObstacle();
                 do LevelGenerator.SetTick(CurrentTick);
             }
             let i = i + 1;

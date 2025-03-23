@@ -23,6 +23,15 @@ class Obstacle
         return;
     }
 
+    method void EraseObstacle() 
+    {
+        var int location;
+        let location = CurrentPossition.GetLocation();
+        do ObstacleTexture.EraseObstacle(location, Type);
+
+        return;
+    }
+
     method void ChangePossitionForTickTime()
     {
         do CurrentPossition.VectorChangePossition(0, 8);

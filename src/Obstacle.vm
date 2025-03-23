@@ -22,6 +22,18 @@ function Obstacle.PrintThisObstacle 1
     pop temp 0
     push constant 0
     return
+function Obstacle.EraseObstacle 1
+    push argument 0
+    pop pointer 0
+    push this 0
+    call Possition.GetLocation 1
+    pop local 0
+    push local 0
+    push this 1
+    call ObstacleTexture.EraseObstacle 2
+    pop temp 0
+    push constant 0
+    return
 function Obstacle.ChangePossitionForTickTime 0
     push argument 0
     pop pointer 0

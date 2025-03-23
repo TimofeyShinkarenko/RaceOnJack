@@ -218,4 +218,36 @@ class ObstacleTexture
         do Memory.poke(memAddress +959, 512);
         return;
     }
+
+    function void EraseObstacle(int location, int Type)
+    {
+        var int i;
+        var int max;
+        var int memAddress; 
+        let memAddress = 16384+location;
+        let i = 0;
+        if (Type = 0)
+        {
+            let max = 27;
+        }
+        if (Type = 1)
+        {
+            let max = 21;
+        }
+        if (Type = 2)
+        {
+            let max = 31;
+        }
+        while (i < max)
+        {
+            do Memory.poke(memAddress + (32 * i), 0);
+            do Memory.poke(memAddress + (32 * i) + 1, 0);
+            let i = i + 1;
+            if (Type > 0)
+            {
+               do Memory.poke(memAddress + (32 * i) - 1, 0); 
+            }
+        }
+        return;
+    }
 }

@@ -145,7 +145,13 @@ label Game_8
     not
     if-goto Game_11
     push local 1
+    call Obstacle.EraseObstacle 1
+    pop temp 0
+    push local 1
     call Obstacle.ChangePossitionForTickTime 1
+    pop temp 0
+    push local 1
+    call Obstacle.PrintThisObstacle 1
     pop temp 0
     push this 10
     push this 3

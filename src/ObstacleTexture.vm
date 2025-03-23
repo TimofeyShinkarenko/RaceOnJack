@@ -1116,3 +1116,90 @@ function ObstacleTexture.PrintVariant2 1
     pop temp 0
     push constant 0
     return
+function ObstacleTexture.EraseObstacle 3
+    push constant 16384
+    push argument 0
+    add
+    pop local 2
+    push constant 0
+    pop local 0
+    push argument 1
+    push constant 0
+    eq
+    not
+    if-goto ObstacleTexture_7
+    push constant 27
+    pop local 1
+    goto ObstacleTexture_6
+label ObstacleTexture_7
+label ObstacleTexture_6
+    push argument 1
+    push constant 1
+    eq
+    not
+    if-goto ObstacleTexture_9
+    push constant 21
+    pop local 1
+    goto ObstacleTexture_8
+label ObstacleTexture_9
+label ObstacleTexture_8
+    push argument 1
+    push constant 2
+    eq
+    not
+    if-goto ObstacleTexture_11
+    push constant 31
+    pop local 1
+    goto ObstacleTexture_10
+label ObstacleTexture_11
+label ObstacleTexture_10
+label ObstacleTexture_12
+    push local 0
+    push local 1
+    lt
+    not
+    if-goto ObstacleTexture_13
+    push local 2
+    push constant 32
+    push local 0
+    call Math.multiply 2
+    add
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    push local 2
+    push constant 32
+    push local 0
+    call Math.multiply 2
+    add
+    push constant 1
+    add
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    push argument 1
+    push constant 0
+    gt
+    not
+    if-goto ObstacleTexture_15
+    push local 2
+    push constant 32
+    push local 0
+    call Math.multiply 2
+    add
+    push constant 1
+    sub
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    goto ObstacleTexture_14
+label ObstacleTexture_15
+label ObstacleTexture_14
+    goto ObstacleTexture_12
+label ObstacleTexture_13
+    push constant 0
+    return
