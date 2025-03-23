@@ -127,40 +127,16 @@ function Layout.HideSplashScreen 1
     push constant 0
     return
 function Layout.PrintField 0
-    push constant 87
-    push constant 17
-    push constant 424
-    push constant 17
+    push constant 183
+    push constant 0
+    push constant 183
+    push constant 256
     call Screen.drawLine 4
     pop temp 0
-    push constant 87
-    push constant 237
-    push constant 424
-    push constant 237
-    call Screen.drawLine 4
-    pop temp 0
-    push constant 87
-    push constant 17
-    push constant 87
-    push constant 237
-    call Screen.drawLine 4
-    pop temp 0
-    push constant 424
-    push constant 17
-    push constant 424
-    push constant 237
-    call Screen.drawLine 4
-    pop temp 0
-    push constant 179
-    push constant 17
-    push constant 179
-    push constant 237
-    call Screen.drawLine 4
-    pop temp 0
-    push constant 356
-    push constant 17
-    push constant 356
-    push constant 237
+    push constant 328
+    push constant 0
+    push constant 328
+    push constant 256
     call Screen.drawLine 4
     pop temp 0
     push constant 0

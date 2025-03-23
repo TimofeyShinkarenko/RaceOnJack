@@ -16,8 +16,8 @@ function Game.new 0
     pop this 8
     push constant 2
     pop this 9
-    push constant 256
-    push constant 128
+    push constant 232
+    push constant 208
     call Possition.new 2
     pop this 7
     push this 7
@@ -207,7 +207,7 @@ label Game_12
     not
     if-goto Game_15
     push this 4
-    push constant 50
+    push constant 30
     sub
     pop this 4
     goto Game_14

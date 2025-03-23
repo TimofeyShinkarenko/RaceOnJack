@@ -35,6 +35,7 @@ class Layout
     {
         // Тут будет полная отрисовка поля:
         // Граница поля, боковые панели, но не часть с трассой
+        /*
         do Screen.drawLine(87, 17, 424, 17);
         do Screen.drawLine(87, 237, 424, 237);
 
@@ -42,7 +43,9 @@ class Layout
         do Screen.drawLine(424, 17, 424, 237);
 
         do Screen.drawLine(179, 17, 179, 237);
-        do Screen.drawLine(356, 17, 356, 237);
+        do Screen.drawLine(356, 17, 356, 237);*/
+        do Screen.drawLine(183, 0, 183, 256);
+        do Screen.drawLine(328, 0, 328, 256);
         return;
     }
 

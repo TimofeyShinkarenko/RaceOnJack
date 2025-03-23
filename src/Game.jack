@@ -22,7 +22,7 @@ class Game
         let BaseSpeed = 30; 
         let SpeedCoefficient = 2; 
 
-        let StartPossition = Possition.new(256, 128);
+        let StartPossition = Possition.new(232, 208);
         let MyCar = Car.new(StartPossition);
         let LevelGenerator = Level.new();
 
@@ -117,7 +117,7 @@ class Game
             do CurrentScore.AddScoreForTickTime(currentSpeed);
             if (TickTime > MinTickTime)
             {
-                let TickTime = TickTime - 50;
+                let TickTime = TickTime - 30;
             }
 
             do MyCar.ManagedDirection();

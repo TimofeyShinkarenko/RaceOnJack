@@ -57,16 +57,16 @@ function Level.GenerateNewObstacle 3
     push local 1
     push constant 3
     call MathExtension.mod 2
-    push constant 59
+    push constant 48
     call Math.multiply 2
-    push constant 195
+    push constant 196
     add
-    push constant 70
+    push constant 0
     call Possition.new 2
     pop local 2
     push this 1
     push local 1
-    push constant 5
+    push constant 25
     call MathExtension.mod 2
     add
     pop this 1
