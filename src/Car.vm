@@ -514,7 +514,7 @@ function Car.MoveRigth 0
     push argument 0
     pop pointer 0
     push this 0
-    push constant 32
+    push constant 48
     push constant 0
     call Possition.VectorChangePossition 3
     pop temp 0
@@ -524,7 +524,7 @@ function Car.MoveLeft 0
     push argument 0
     pop pointer 0
     push this 0
-    push constant 32
+    push constant 48
     neg
     push constant 0
     call Possition.VectorChangePossition 3
@@ -541,12 +541,21 @@ function Car.ManagedDirection 1
     eq
     not
     if-goto Car_3
+    push this 0
+    call Possition.GetX 1
+    push constant 220
+    gt
+    not
+    if-goto Car_5
     push pointer 0
     call Car.EraseCar 1
     pop temp 0
     push pointer 0
     call Car.MoveLeft 1
     pop temp 0
+    goto Car_4
+label Car_5
+label Car_4
     goto Car_2
 label Car_3
 label Car_2
@@ -554,15 +563,24 @@ label Car_2
     push constant 132
     eq
     not
-    if-goto Car_5
+    if-goto Car_7
+    push this 0
+    call Possition.GetX 1
+    push constant 250
+    lt
+    not
+    if-goto Car_9
     push pointer 0
     call Car.EraseCar 1
     pop temp 0
     push pointer 0
     call Car.MoveRigth 1
     pop temp 0
-    goto Car_4
-label Car_5
-label Car_4
+    goto Car_8
+label Car_9
+label Car_8
+    goto Car_6
+label Car_7
+label Car_6
     push constant 0
     return

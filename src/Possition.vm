@@ -53,6 +53,31 @@ label Possition_1
 label Possition_0
     push constant 0
     return
+function Possition.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function Possition.IsUnder 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    call Possition.GetY 1
+    push this 1
+    lt
+    not
+    if-goto Possition_3
+    push constant 1
+    neg
+    return
+    goto Possition_2
+label Possition_3
+label Possition_2
+    push constant 0
+    return
 function Possition.GetLocation 1
     push argument 0
     pop pointer 0

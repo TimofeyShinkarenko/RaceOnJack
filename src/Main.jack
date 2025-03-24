@@ -3,12 +3,15 @@ class Main
     function void main() 
     {
         var Game game;
-        while (true)
+        var boolean isPlaying;
+        let isPlaying = true;
+        while (isPlaying)
         {
             let game = Game.new();
-
             do game.StartGame();
             do game.Play();
+            let isPlaying = game.Restart();
+            do game.dispose();
         }
 
         return;

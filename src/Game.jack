@@ -18,11 +18,11 @@ class Game
         let CurrentScore = Score.new();
         let CurrentTick = 0;
         let MinTickTime = 100;
-        let NumberOfObstacls = 10;
+        let NumberOfObstacls = 7;
         let BaseSpeed = 30; 
         let SpeedCoefficient = 2; 
 
-        let StartPossition = Possition.new(232, 208);
+        let StartPossition = Possition.new(240, 208);
         let MyCar = Car.new(StartPossition);
         let LevelGenerator = Level.new();
 
@@ -56,7 +56,7 @@ class Game
         var int i;
         var Possition carPosition;
         var Obstacle obstacle;
-        var Possition obstaclePossition;
+        var Obstacle newObstacle;
 
         let IsCarAlive = true;
         let i = 0;
@@ -69,11 +69,7 @@ class Game
             {
                 return false;
             }
-            if (carPosition.GetY() > obstaclePossition.GetY())
-            {
-                let obstacle = LevelGenerator.GenerateNewObstacle();
-                let Obstacls[i] = obstacle;
-            }
+        
             let i = i + 1;
         }
 
@@ -84,17 +80,22 @@ class Game
     {
         var int i;
         var Obstacle obstacle;
-
+        var Possition obstaclePossition;
         let i = 0;
         while (i < NumberOfObstacls)
         {
             let obstacle = Obstacls[i];
-            if (obstacle.GetSpawnTick() > CurrentTick)
+            let obstaclePossition = obstacle.GetCurrentPossition();
+            if (obstaclePossition.GetY() = 256)
+            {
+                do obstacle.EraseObstacle();
+                let Obstacls[i] = LevelGenerator.GenerateNewObstacle();
+            }
+            if (obstacle.GetSpawnTick() < CurrentTick)
             {
                 do obstacle.EraseObstacle();
                 do obstacle.ChangePossitionForTickTime();
                 do obstacle.PrintThisObstacle();
-                do LevelGenerator.SetTick(CurrentTick);
             }
             let i = i + 1;
         }
@@ -111,46 +112,63 @@ class Game
         while (carAlive = true)
         {
             let currentSpeed = CalculateCurrentSpeed();
+            do Layout.EraseCrossLines();
+            do Layout.PrintCurrentState(MyCar, CurrentScore, currentSpeed, CurrentTick);
             do Sys.wait(TickTime);
-            do Layout.PrintCurrentState(MyCar, Obstacls, CurrentScore, NumberOfObstacls, currentSpeed);
+            let CurrentTick = CurrentTick + 1;
+            do LevelGenerator.SetTick(CurrentTick);
             do MoveObstacls();
             do CurrentScore.AddScoreForTickTime(currentSpeed);
             if (TickTime > MinTickTime)
             {
                 let TickTime = TickTime - 30;
             }
-
             do MyCar.ManagedDirection();
+            do MyCar.PrintCar(); //перенести эту строку в ManagedDirection? -> moveLeft/MoveRight
             let carAlive = CheckAlive();
         }
 
         do Layout.PrintLoseScreen(CurrentScore);
-
+        //еще какой-то do, метод, чтобы проигрыш нормально работал??? или сделать отдельный метод для обработки проигрыша с выводом экрана?
         return;
     }
 
-    method void Restart()
+    method boolean Restart()
     {
         var char key;
         let key = Keyboard.keyPressed();
-        while (key = 0)
+        while (true)
         {
+            let key = Keyboard.keyPressed();
             if (key = 140)
             {
-                do Sys.halt();
+                return false;
             }
             if (key = 128)
             {
-                return;
+                do Screen.clearScreen();
+                return true;
             }
         }
-
-        return;
+        return true;
+        //вызов метода, перезапускающего все?
     }
+    
     method int CalculateCurrentSpeed()
     {
         var int currentSpeed;
         let currentSpeed = BaseSpeed + (SpeedCoefficient * (3000 / TickTime));
         return currentSpeed;
+    }
+
+    method void dispose()
+    {
+        do MyCar.dispose();
+        do CurrentScore.dispose();
+        do Obstacls.dispose();
+        do StartPossition.dispose();
+        do LevelGenerator.dispose();
+        do Memory.deAlloc(this);
+        return;
     }
 }

@@ -20,14 +20,14 @@ class Possition
     }
 
     method int GetY()
-   {
+    {
       return Y;
-   }
+    }
 
-   method int GetX()
-   {
+    method int GetX()
+    {
       return X;
-   }
+    }
 
     method boolean Equal(Possition other)
     {
@@ -36,6 +36,22 @@ class Possition
             return true;
         }
 
+        return false;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
+
+        return;
+    }
+
+    method boolean IsUnder(Possition other)
+    {
+        if (other.GetY() < Y)
+        {
+            return true;
+        }
         return false;
     }
 

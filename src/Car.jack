@@ -121,14 +121,14 @@ class Car
     method void MoveRigth() 
     {
 
-        do CurrentPossition.VectorChangePossition(32, 0);
+        do CurrentPossition.VectorChangePossition(48, 0);
 
         return;
     }
 
     method void MoveLeft() 
     {
-        do CurrentPossition.VectorChangePossition(-32, 0);
+        do CurrentPossition.VectorChangePossition(-48, 0);
 
         return;
     }
@@ -139,13 +139,19 @@ class Car
         let keyToMove = Keyboard.keyPressed();
         if (keyToMove = 130)
         {
-            do EraseCar();
-            do MoveLeft();
+            if (CurrentPossition.GetX() > 220)
+            {
+                do EraseCar();
+                do MoveLeft();
+            }
         }
         if (keyToMove = 132)
         {
-            do EraseCar();
-            do MoveRigth();
+            if (CurrentPossition.GetX() < 250)
+            {
+                do EraseCar();
+                do MoveRigth();
+            }
         }
         return;
     }

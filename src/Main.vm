@@ -1,7 +1,9 @@
-function Main.main 1
-label Main_0
+function Main.main 2
     push constant 1
     neg
+    pop local 1
+label Main_0
+    push local 1
     not
     if-goto Main_1
     call Game.new 0
@@ -11,6 +13,12 @@ label Main_0
     pop temp 0
     push local 0
     call Game.Play 1
+    pop temp 0
+    push local 0
+    call Game.Restart 1
+    pop local 1
+    push local 0
+    call Game.dispose 1
     pop temp 0
     goto Main_0
 label Main_1

@@ -10,13 +10,13 @@ function Game.new 0
     pop this 3
     push constant 100
     pop this 5
-    push constant 10
+    push constant 7
     pop this 6
     push constant 30
     pop this 8
     push constant 2
     pop this 9
-    push constant 232
+    push constant 240
     push constant 208
     call Possition.new 2
     pop this 7
@@ -91,27 +91,6 @@ label Game_2
     goto Game_4
 label Game_5
 label Game_4
-    push local 2
-    call Possition.GetY 1
-    push local 4
-    call Possition.GetY 1
-    gt
-    not
-    if-goto Game_7
-    push this 10
-    call Level.GenerateNewObstacle 1
-    pop local 3
-    push local 1
-    push this 2
-    add
-    push local 3
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Game_6
-label Game_7
-label Game_6
     push local 1
     push constant 1
     add
@@ -121,17 +100,17 @@ label Game_3
     push constant 1
     neg
     return
-function Game.MoveObstacls 2
+function Game.MoveObstacls 3
     push argument 0
     pop pointer 0
     push constant 0
     pop local 0
-label Game_8
+label Game_6
     push local 0
     push this 6
     lt
     not
-    if-goto Game_9
+    if-goto Game_7
     push local 0
     push this 2
     add
@@ -139,9 +118,33 @@ label Game_8
     push that 0
     pop local 1
     push local 1
+    call Obstacle.GetCurrentPossition 1
+    pop local 2
+    push local 2
+    call Possition.GetY 1
+    push constant 256
+    eq
+    not
+    if-goto Game_9
+    push local 1
+    call Obstacle.EraseObstacle 1
+    pop temp 0
+    push local 0
+    push this 2
+    add
+    push this 10
+    call Level.GenerateNewObstacle 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto Game_8
+label Game_9
+label Game_8
+    push local 1
     call Obstacle.GetSpawnTick 1
     push this 3
-    gt
+    lt
     not
     if-goto Game_11
     push local 1
@@ -153,10 +156,6 @@ label Game_8
     push local 1
     call Obstacle.PrintThisObstacle 1
     pop temp 0
-    push this 10
-    push this 3
-    call Level.SetTick 2
-    pop temp 0
     goto Game_10
 label Game_11
 label Game_10
@@ -164,8 +163,8 @@ label Game_10
     push constant 1
     add
     pop local 0
-    goto Game_8
-label Game_9
+    goto Game_6
+label Game_7
     push constant 0
     return
 function Game.Play 2
@@ -184,15 +183,24 @@ label Game_12
     push pointer 0
     call Game.CalculateCurrentSpeed 1
     pop local 1
+    call Layout.EraseCrossLines 0
+    pop temp 0
+    push this 1
+    push this 0
+    push local 1
+    push this 3
+    call Layout.PrintCurrentState 4
+    pop temp 0
     push this 4
     call Sys.wait 1
     pop temp 0
-    push this 1
-    push this 2
-    push this 0
-    push this 6
-    push local 1
-    call Layout.PrintCurrentState 5
+    push this 3
+    push constant 1
+    add
+    pop this 3
+    push this 10
+    push this 3
+    call Level.SetTick 2
     pop temp 0
     push pointer 0
     call Game.MoveObstacls 1
@@ -216,6 +224,9 @@ label Game_14
     push this 1
     call Car.ManagedDirection 1
     pop temp 0
+    push this 1
+    call Car.PrintCar 1
+    pop temp 0
     push pointer 0
     call Game.CheckAlive 1
     pop local 0
@@ -232,18 +243,19 @@ function Game.Restart 1
     call Keyboard.keyPressed 0
     pop local 0
 label Game_16
-    push local 0
-    push constant 0
-    eq
+    push constant 1
+    neg
     not
     if-goto Game_17
+    call Keyboard.keyPressed 0
+    pop local 0
     push local 0
     push constant 140
     eq
     not
     if-goto Game_19
-    call Sys.halt 0
-    pop temp 0
+    push constant 0
+    return
     goto Game_18
 label Game_19
 label Game_18
@@ -252,14 +264,18 @@ label Game_18
     eq
     not
     if-goto Game_21
-    push constant 0
+    call Screen.clearScreen 0
+    pop temp 0
+    push constant 1
+    neg
     return
     goto Game_20
 label Game_21
 label Game_20
     goto Game_16
 label Game_17
-    push constant 0
+    push constant 1
+    neg
     return
 function Game.CalculateCurrentSpeed 1
     push argument 0
@@ -273,4 +289,27 @@ function Game.CalculateCurrentSpeed 1
     add
     pop local 0
     push local 0
+    return
+function Game.dispose 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    call Car.dispose 1
+    pop temp 0
+    push this 0
+    call Score.dispose 1
+    pop temp 0
+    push this 2
+    call Array.dispose 1
+    pop temp 0
+    push this 7
+    call Possition.dispose 1
+    pop temp 0
+    push this 10
+    call Level.dispose 1
+    pop temp 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
     return

@@ -40,190 +40,200 @@ function ObstacleTexture.PrintVariant0 1
     add
     pop local 0
     push local 0
-    push constant 32767
-    not
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 32
     add
-    push constant 32767
-    not
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 64
     add
-    push constant 16384
-    neg
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 96
     add
-    push constant 4096
-    neg
+    push constant 32767
+    not
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 128
     add
-    push constant 1024
-    neg
+    push constant 16384
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 160
     add
-    push constant 512
-    neg
+    push constant 8192
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 192
     add
-    push constant 16384
-    neg
+    push constant 4096
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 224
     add
-    push constant 16384
-    neg
+    push constant 2048
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 256
     add
-    push constant 8192
-    neg
+    push constant 10240
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 288
     add
-    push constant 1024
-    neg
+    push constant 20480
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 320
     add
-    push constant 256
+    push constant 30720
     neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 352
     add
-    push constant 64
-    neg
+    push constant 1024
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 384
     add
-    push constant 16
-    neg
+    push constant 512
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 416
     add
-    push constant 16384
-    neg
+    push constant 13312
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 448
     add
-    push constant 16384
-    neg
+    push constant 18432
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 480
     add
-    push constant 8192
+    push constant 31744
     neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 512
     add
-    push constant 2048
-    neg
+    push constant 512
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 544
     add
     push constant 256
-    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 576
     add
-    push constant 32
-    neg
+    push constant 8320
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 608
     add
-    push constant 4
-    neg
+    push constant 23808
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 640
     add
-    push constant 1
+    push constant 32256
     neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 672
     add
-    push constant 16384
-    neg
+    push constant 256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 704
     add
-    push constant 16384
-    neg
+    push constant 128
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 736
     add
-    push constant 16384
-    neg
+    push constant 64
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 768
     add
-    push constant 16384
-    neg
+    push constant 64
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 800
     add
-    push constant 8192
-    neg
+    push constant 128
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 832
     add
-    push constant 4096
+    push constant 14592
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 864
+    add
+    push constant 14848
     neg
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 896
+    add
+    push constant 32767
+    not
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 928
+    add
+    push constant 32767
+    not
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    push constant 0
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 33
+    add
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
@@ -235,145 +245,163 @@ function ObstacleTexture.PrintVariant0 1
     push local 0
     push constant 97
     add
-    push constant 7
+    push constant 2
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 129
     add
-    push constant 31
+    push constant 4
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 161
     add
-    push constant 63
+    push constant 8
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 193
     add
-    push constant 1
+    push constant 16
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 225
     add
-    push constant 1
+    push constant 32
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 257
     add
-    push constant 3
+    push constant 44
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 289
     add
-    push constant 31
+    push constant 19
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 321
     add
-    push constant 127
+    push constant 32
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 353
     add
-    push constant 511
+    push constant 64
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 385
     add
-    push constant 2047
+    push constant 128
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 417
     add
-    push constant 1
+    push constant 90
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 449
     add
-    push constant 1
+    push constant 37
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 481
     add
-    push constant 3
+    push constant 64
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 513
     add
-    push constant 15
+    push constant 128
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 545
     add
-    push constant 127
+    push constant 256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 577
     add
-    push constant 1023
+    push constant 520
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 609
     add
-    push constant 8191
+    push constant 308
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 641
     add
-    push constant 32767
+    push constant 195
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 673
     add
-    push constant 1
+    push constant 256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 705
     add
-    push constant 1
+    push constant 512
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 737
     add
-    push constant 1
+    push constant 1024
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 769
     add
-    push constant 1
+    push constant 1024
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 801
     add
-    push constant 3
+    push constant 512
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 833
     add
-    push constant 7
+    push constant 284
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 865
+    add
+    push constant 227
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 897
+    add
+    push constant 1
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 929
+    add
+    push constant 1
     call Memory.poke 2
     pop temp 0
     push constant 0
@@ -384,292 +412,247 @@ function ObstacleTexture.PrintVariant1 1
     add
     pop local 0
     push local 0
-    push constant 128
-    add
-    push constant 992
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 160
-    add
-    push constant 1008
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 192
-    add
-    push constant 200
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 224
-    add
-    push constant 7398
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 256
-    add
-    push constant 14235
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 288
-    add
-    push constant 32761
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 320
-    add
-    push constant 12555
-    call Memory.poke 2
-    pop temp 0
-    push local 0
     push constant 352
     add
-    push constant 13226
+    push constant 3968
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 384
     add
-    push constant 42
+    push constant 3904
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 416
     add
-    push constant 2123
+    push constant 14368
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 448
     add
-    push constant 809
+    push constant 18024
     neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 480
     add
-    push constant 30378
-    neg
+    push constant 412
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 512
     add
-    push constant 28078
+    push constant 16364
     neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 544
     add
-    push constant 13473
+    push constant 29142
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 576
     add
-    push constant 30880
+    push constant 3758
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 608
     add
-    push constant 29152
+    push constant 28498
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 640
     add
-    push constant 448
+    push constant 1750
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 1
+    push constant 672
     add
-    push constant 192
+    push constant 4950
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 33
+    push constant 704
     add
-    push constant 160
+    push constant 9559
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 65
+    push constant 736
     add
-    push constant 504
+    push constant 26953
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 97
+    push constant 768
     add
-    push constant 1556
+    push constant 11642
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 129
+    push constant 800
     add
-    push constant 2354
+    push constant 7552
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 161
+    push constant 832
     add
-    push constant 4133
+    push constant 1920
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 864
+    add
+    push constant 1792
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 193
     add
-    push constant 14360
+    push constant 768
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 225
     add
-    push constant 10240
+    push constant 640
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 257
     add
-    push constant 8141
+    push constant 2016
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 289
     add
-    push constant 45
+    push constant 6232
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 321
     add
-    push constant 16
+    push constant 9604
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 353
     add
-    push constant 23
+    push constant 16674
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 385
     add
-    push constant 35
+    push constant 7987
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 417
     add
-    push constant 32
+    push constant 8179
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 449
     add
-    push constant 78
+    push constant 32563
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 481
     add
-    push constant 178
+    push constant 152
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 513
     add
-    push constant 834
+    push constant 65
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 545
     add
-    push constant 1925
+    push constant 93
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 577
     add
-    push constant 1799
+    push constant 140
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 609
     add
-    push constant 15
+    push constant 225
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 641
     add
-    push constant 14
+    push constant 315
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 319
+    push constant 673
     add
-    push constant 32767
-    not
+    push constant 714
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 351
+    push constant 705
     add
-    push constant 32767
-    not
+    push constant 3338
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 383
+    push constant 737
     add
-    push constant 32767
-    not
+    push constant 7700
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 415
+    push constant 769
     add
-    push constant 32767
-    not
+    push constant 7188
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 447
+    push constant 801
     add
-    push constant 32767
-    not
+    push constant 60
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 479
+    push constant 833
     add
-    push constant 16384
+    push constant 56
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 511
+    push constant 865
     add
-    push constant 16384
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 543
-    add
-    push constant 32767
-    not
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push constant 0
@@ -680,438 +663,328 @@ function ObstacleTexture.PrintVariant2 1
     add
     pop local 0
     push local 0
-    push constant 384
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 32
     add
-    push constant 64
+    push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 64
     add
-    push constant 64
+    push constant 3840
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 96
     add
-    push constant 132
+    push constant 4224
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 128
     add
-    push constant 900
+    push constant 8256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 160
     add
-    push constant 16328
+    push constant 7776
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 192
     add
-    push constant 912
-    neg
+    push constant 544
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 224
     add
-    push constant 26112
+    push constant 544
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 256
     add
-    push constant 29664
+    push constant 288
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 288
     add
-    push constant 16384
+    push constant 192
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 320
     add
-    push constant 16384
+    push constant 7296
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 352
     add
-    push constant 32767
-    not
+    push constant 9856
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 384
     add
-    push constant 32767
-    not
+    push constant 9792
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 416
     add
-    push constant 32767
-    not
+    push constant 14912
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 448
     add
-    push constant 32767
-    not
+    push constant 7408
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 480
     add
-    push constant 16384
-    neg
+    push constant 64
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 512
     add
-    push constant 25087
+    push constant 192
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 544
     add
-    push constant 16131
+    push constant 112
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 576
     add
-    push constant 2
+    push constant 8320
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 608
     add
-    push constant 2
+    push constant 16256
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 640
     add
-    push constant 3
+    push constant 4224
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 672
     add
-    push constant 1985
+    push constant 8320
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 704
     add
-    push constant 911
-    neg
+    push constant 9344
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 736
     add
-    push constant 32743
-    neg
+    push constant 6272
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 768
     add
-    push constant 15
+    push constant 256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 800
     add
-    push constant 1
+    push constant 896
+    neg
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 832
     add
-    push constant 0
+    push constant 768
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 864
+    push constant 1
     add
     push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 896
+    push constant 33
     add
     push constant 0
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 928
+    push constant 65
     add
-    push constant 0
+    push constant 480
     call Memory.poke 2
     pop temp 0
     push local 0
-    push constant 960
+    push constant 97
     add
-    push constant 0
+    push constant 528
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 129
+    add
+    push constant 1032
+    call Memory.poke 2
+    pop temp 0
+    push local 0
+    push constant 161
+    add
+    push constant 2831
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 193
     add
-    push constant 3
+    push constant 2176
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 225
     add
-    push constant 252
+    push constant 2176
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 257
     add
-    push constant 194
+    push constant 2304
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 289
     add
-    push constant 48
+    push constant 1536
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 321
     add
-    push constant 8
+    push constant 624
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 353
     add
-    push constant 8
+    push constant 712
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 385
     add
-    push constant 8
+    push constant 1224
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 417
     add
-    push constant 8
+    push constant 1208
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 449
     add
-    push constant 24
+    push constant 7792
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 481
     add
-    push constant 16
+    push constant 1025
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 513
     add
-    push constant 16
+    push constant 1536
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 545
     add
-    push constant 16
+    push constant 7168
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 577
     add
-    push constant 24
+    push constant 521
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 609
     add
-    push constant 8
+    push constant 774
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 641
     add
-    push constant 8
+    push constant 528
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 673
     add
-    push constant 120
+    push constant 520
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 705
     add
-    push constant 252
+    push constant 584
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 737
     add
-    push constant 199
+    push constant 560
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 769
     add
-    push constant 96
+    push constant 256
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 801
     add
-    push constant 48
+    push constant 639
     call Memory.poke 2
     pop temp 0
     push local 0
     push constant 833
     add
-    push constant 24
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 865
-    add
-    push constant 14
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 897
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 929
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 961
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 511
-    add
-    push constant 32767
-    not
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 543
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 575
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 607
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 639
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 671
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 703
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 735
-    add
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 767
-    add
-    push constant 8192
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 799
-    add
-    push constant 4096
-    neg
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 831
-    add
-    push constant 6144
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 863
-    add
-    push constant 7168
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 895
-    add
-    push constant 3584
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 927
-    add
-    push constant 1024
-    call Memory.poke 2
-    pop temp 0
-    push local 0
-    push constant 959
-    add
-    push constant 512
+    push constant 384
     call Memory.poke 2
     pop temp 0
     push constant 0
@@ -1128,7 +1001,7 @@ function ObstacleTexture.EraseObstacle 3
     eq
     not
     if-goto ObstacleTexture_7
-    push constant 27
+    push constant 30
     pop local 1
     goto ObstacleTexture_6
 label ObstacleTexture_7
@@ -1138,7 +1011,7 @@ label ObstacleTexture_6
     eq
     not
     if-goto ObstacleTexture_9
-    push constant 21
+    push constant 28
     pop local 1
     goto ObstacleTexture_8
 label ObstacleTexture_9
@@ -1148,7 +1021,7 @@ label ObstacleTexture_8
     eq
     not
     if-goto ObstacleTexture_11
-    push constant 31
+    push constant 27
     pop local 1
     goto ObstacleTexture_10
 label ObstacleTexture_11
@@ -1181,24 +1054,6 @@ label ObstacleTexture_12
     push constant 1
     add
     pop local 0
-    push argument 1
-    push constant 0
-    gt
-    not
-    if-goto ObstacleTexture_15
-    push local 2
-    push constant 32
-    push local 0
-    call Math.multiply 2
-    add
-    push constant 1
-    sub
-    push constant 0
-    call Memory.poke 2
-    pop temp 0
-    goto ObstacleTexture_14
-label ObstacleTexture_15
-label ObstacleTexture_14
     goto ObstacleTexture_12
 label ObstacleTexture_13
     push constant 0

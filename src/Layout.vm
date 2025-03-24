@@ -127,21 +127,64 @@ function Layout.HideSplashScreen 1
     push constant 0
     return
 function Layout.PrintField 0
-    push constant 183
+    push constant 1
+    neg
+    call Screen.setColor 1
+    pop temp 0
+    push constant 174
     push constant 0
-    push constant 183
+    push constant 174
     push constant 256
     call Screen.drawLine 4
     pop temp 0
-    push constant 328
+    push constant 175
     push constant 0
-    push constant 328
+    push constant 175
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 326
+    push constant 0
+    push constant 326
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 327
+    push constant 0
+    push constant 327
     push constant 256
     call Screen.drawLine 4
     pop temp 0
     push constant 0
     return
-function Layout.PrintLoseScreen 1
+function Layout.PrintLoseScreen 2
+    push constant 12
+    call String.new 1
+    push constant 70
+    call String.appendChar 2
+    push constant 105
+    call String.appendChar 2
+    push constant 110
+    call String.appendChar 2
+    push constant 97
+    call String.appendChar 2
+    push constant 108
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 83
+    call String.appendChar 2
+    push constant 99
+    call String.appendChar 2
+    push constant 111
+    call String.appendChar 2
+    push constant 114
+    call String.appendChar 2
+    push constant 101
+    call String.appendChar 2
+    push constant 58
+    call String.appendChar 2
+    pop local 1
     push constant 40
     call String.new 1
     push constant 80
@@ -225,53 +268,186 @@ function Layout.PrintLoseScreen 1
     push constant 46
     call String.appendChar 2
     pop local 0
-    push argument 0
-    call Score.PrintCurrentScore 1
+    call Screen.clearScreen 0
+    pop temp 0
+    push constant 9
+    push constant 16
+    call Output.moveCursor 2
     pop temp 0
     push local 0
     call Output.printString 1
     pop temp 0
+    push constant 10
+    push constant 16
+    call Output.moveCursor 2
+    pop temp 0
+    push local 1
+    call Output.printString 1
+    pop temp 0
+    push argument 0
+    call Output.printInt 1
+    pop temp 0
     push constant 0
     return
-function Layout.PrintCurrentState 4
-    push argument 0
-    call Car.GetCurrentPossition 1
-    pop local 2
-    push local 2
-    call Possition.GetLocation 1
-    pop local 3
-    push constant 0
-    pop local 0
-    push argument 0
-    call Car.PrintCar 1
+function Layout.PrintCurrentState 0
+    push argument 3
+    push constant 8
+    call MathExtension.mod 2
+    call Layout.PrintCrossLines 1
     pop temp 0
-    push argument 2
+    push argument 1
     call Score.PrintCurrentScore 1
     pop temp 0
-    push argument 4
+    push argument 2
     call Layout.PrintSpeed 1
     pop temp 0
+    push constant 0
+    return
+function Layout.PrintCrossLines 1
+    push constant 0
+    pop local 0
 label Layout_0
     push local 0
-    push argument 3
+    push constant 24
     lt
     not
     if-goto Layout_1
+    push constant 230
     push local 0
-    push argument 1
+    push constant 8
+    call Math.multiply 2
+    push argument 0
     add
-    pop pointer 1
-    push that 0
-    pop local 1
-    push local 1
-    call Obstacle.PrintThisObstacle 1
-    pop temp 0
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    push constant 230
     push local 0
     push constant 1
+    add
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 229
+    push local 0
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    push constant 229
+    push local 0
+    push constant 1
+    add
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 281
+    push local 0
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    push constant 281
+    push local 0
+    push constant 1
+    add
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 280
+    push local 0
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    push constant 280
+    push local 0
+    push constant 1
+    add
+    push constant 8
+    call Math.multiply 2
+    push argument 0
+    add
+    push constant 4
+    call Math.multiply 2
+    push constant 256
+    call MathExtension.mod 2
+    call Screen.drawLine 4
+    pop temp 0
+    push local 0
+    push constant 2
     add
     pop local 0
     goto Layout_0
 label Layout_1
+    push constant 0
+    return
+function Layout.EraseCrossLines 0
+    push constant 1
+    neg
+    call Screen.setColor 1
+    pop temp 0
+    push constant 230
+    push constant 0
+    push constant 230
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 229
+    push constant 0
+    push constant 229
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 281
+    push constant 0
+    push constant 281
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 280
+    push constant 0
+    push constant 280
+    push constant 256
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
     push constant 0
     return
 function Layout.PrintSpeed 1
