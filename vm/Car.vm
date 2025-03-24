@@ -1,0 +1,76 @@
+function Car.new 0
+    push constant 1
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push pointer 0
+    return
+function Car.PrintCar 0
+    push argument 0
+    pop pointer 0
+    push constant 0
+    return
+function Car.GetCurrentPossition 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function Car.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function Car.MoveRigth 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 32
+    push constant 0
+    call Possition.VectorChangePossition 3
+    pop temp 0
+    push constant 0
+    return
+function Car.MoveLeft 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 32
+    neg
+    push constant 0
+    call Possition.VectorChangePossition 3
+    pop temp 0
+    push constant 0
+    return
+function Car.ManagedDirection 1
+    push argument 0
+    pop pointer 0
+    call Keyboard.keyPressed 0
+    pop local 0
+    push local 0
+    push constant 130
+    eq
+    not
+    if-goto Car_1
+    push pointer 0
+    call Car.MoveLeft 1
+    pop temp 0
+    goto Car_0
+label Car_1
+label Car_0
+    push local 0
+    push constant 132
+    eq
+    not
+    if-goto Car_3
+    push pointer 0
+    call Car.MoveRigth 1
+    pop temp 0
+    goto Car_2
+label Car_3
+label Car_2
+    push constant 0
+    return

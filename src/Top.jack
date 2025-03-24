@@ -1,0 +1,81 @@
+class Top
+{
+    field Array Scores;
+    field int index;
+    field int Length;
+
+    constructor Top new()
+    {
+        let Length = 10;
+        let Scores = Array.new(Length);
+        let index = 0;
+        
+        return this;
+    }
+
+    method void Add(Score score)
+    {
+        if (index < Length)
+        {
+            let Scores[index] = score.GetCurrentScore();
+            let index = index + 1; 
+            return;
+        }
+        if (score.GetCurrentScore() > Scores[(Length - 1)])
+        {
+            let Scores[(Length - 1)] = score.GetCurrentScore();
+        }
+
+        return;
+    }
+
+    method void PrintTop(int y, int x)
+    {
+        var int i;
+        var int score;
+        let i = 0;
+        do Output.moveCursor(y, x);
+        do Output.printString("Top scores:");
+        do Sort(index);
+        while (i < index)
+        {
+            let score = Scores[i];
+            do Output.moveCursor(y + 1 + i, x);
+            do Output.printInt(score);
+            let i = i + 1;
+        }
+
+        return;
+    }
+
+    method void Sort(int length) 
+    {
+        var int i, j, temp;
+        var boolean swapped;
+
+        let j = length - 1;
+        while (j > 0) 
+        {
+            let swapped = false;
+            let i = 0;
+            while (i < j) 
+            {
+                if (Scores[i] < Scores[i + 1]) 
+                {
+                    let temp = Scores[i];
+                    let Scores[i] = Scores[i + 1];
+                    let Scores[i + 1] = temp;
+                    let swapped = true;
+                }
+                let i = i + 1;
+            }
+            if (~swapped) 
+            {
+                return; 
+            }
+            let j = j - 1; 
+        }
+
+        return;
+    }
+}

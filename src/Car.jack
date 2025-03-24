@@ -85,6 +85,7 @@ class Car
 	    do Memory.poke(memAddress +993, 255);
 	    do Memory.poke(memAddress +1025, 127);
 	    do Memory.poke(memAddress +1057, 0);
+
 	    return;
     }
 
@@ -96,31 +97,30 @@ class Car
         let i = 0;
         let location = CurrentPossition.GetLocation();
 	    let memAddress = location + 16384;
-	    // column 0 16384
         while (i < 34)
         {
             do Memory.poke(memAddress + (32 * i), 0);
             do Memory.poke(memAddress + (32 * i) + 1, 0);
             let i = i + 1;
         }
+
         return;
     }
 
     method Possition GetCurrentPossition()
-   {
-      return CurrentPossition;
-   }
+    {
+        return CurrentPossition;
+    }
 
-   method void dispose()
-   {
-      do Memory.deAlloc(this);
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
 
-      return;
-   }
+        return;
+    }
 
     method void MoveRigth() 
     {
-
         do CurrentPossition.VectorChangePossition(48, 0);
 
         return;
@@ -153,6 +153,7 @@ class Car
                 do MoveRigth();
             }
         }
+        
         return;
     }
 }
