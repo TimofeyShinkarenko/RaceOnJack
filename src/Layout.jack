@@ -15,7 +15,6 @@ class Layout
         let nothing = "                         ";
         do Output.moveCursor(9, 16);
         do Output.printString(nothing);
-        do Output.moveCursor(9, 16);
         return;
     }
 

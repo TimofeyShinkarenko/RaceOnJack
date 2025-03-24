@@ -3,12 +3,25 @@ class Obstacle
     field Possition CurrentPossition;
     field int Type;
     field int SpawnTick;
+    field int size;
 
     constructor Obstacle new(Possition startPossition, int type, int tick)
     {
         let CurrentPossition = startPossition;
         let Type = type;
         let SpawnTick = tick;
+        if (Type = 0)
+        {
+            let size = 30;
+        }
+        if (Type = 1)
+        {
+            let size = 28;
+        }
+        if (Type = 2)
+        {
+            let size = 27;
+        }
 
         return this;
     }
@@ -47,6 +60,11 @@ class Obstacle
    method int GetType()
    {
       return Type;
+   }
+
+   method int GetSize()
+   {
+      return size;
    }
 
    method int GetSpawnTick()

@@ -120,10 +120,6 @@ function Layout.HideSplashScreen 1
     push local 0
     call Output.printString 1
     pop temp 0
-    push constant 9
-    push constant 16
-    call Output.moveCursor 2
-    pop temp 0
     push constant 0
     return
 function Layout.PrintField 0

@@ -11,16 +11,18 @@ class Game
     field int BaseSpeed;
     field int SpeedCoefficient;
     field Level LevelGenerator;
+    field int currentSpeed;
 
     constructor Game new()
     {
-        let TickTime = 1000;
+        let TickTime = 500;
         let CurrentScore = Score.new();
         let CurrentTick = 0;
         let MinTickTime = 100;
         let NumberOfObstacls = 7;
         let BaseSpeed = 30; 
         let SpeedCoefficient = 2; 
+        let currentSpeed = BaseSpeed;
 
         let StartPossition = Possition.new(240, 208);
         let MyCar = Car.new(StartPossition);
@@ -46,7 +48,7 @@ class Game
         }
         do Layout.HideSplashScreen();
         do Layout.PrintField();
-        let Obstacls = LevelGenerator.CreateLevel(NumberOfObstacls);
+        let Obstacls = LevelGenerator.CreateLevel(NumberOfObstacls, currentSpeed);
         return;
     }
 
@@ -89,7 +91,7 @@ class Game
             if (obstaclePossition.GetY() = 256)
             {
                 do obstacle.EraseObstacle();
-                let Obstacls[i] = LevelGenerator.GenerateNewObstacle();
+                let Obstacls[i] = LevelGenerator.GenerateNewObstacle(currentSpeed);
             }
             if (obstacle.GetSpawnTick() < CurrentTick)
             {
@@ -106,7 +108,6 @@ class Game
     method void Play()
     {
         var boolean carAlive;
-        var int currentSpeed;
         let carAlive = true;
 
         while (carAlive = true)
@@ -129,7 +130,8 @@ class Game
         }
 
         do Layout.PrintLoseScreen(CurrentScore);
-        //еще какой-то do, метод, чтобы проигрыш нормально работал??? или сделать отдельный метод для обработки проигрыша с выводом экрана?
+        let CurrentScore = 0;
+        let TickTime = 0;
         return;
     }
 
@@ -151,7 +153,6 @@ class Game
             }
         }
         return true;
-        //вызов метода, перезапускающего все?
     }
     
     method int CalculateCurrentSpeed()

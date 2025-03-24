@@ -1,8 +1,8 @@
 function Game.new 0
-    push constant 11
+    push constant 12
     call Memory.alloc 1
     pop pointer 0
-    push constant 1000
+    push constant 500
     pop this 4
     call Score.new 0
     pop this 0
@@ -16,6 +16,8 @@ function Game.new 0
     pop this 8
     push constant 2
     pop this 9
+    push this 8
+    pop this 11
     push constant 240
     push constant 208
     call Possition.new 2
@@ -53,7 +55,8 @@ label Game_1
     pop temp 0
     push this 10
     push this 6
-    call Level.CreateLevel 2
+    push this 11
+    call Level.CreateLevel 3
     pop this 2
     push constant 0
     return
@@ -133,7 +136,8 @@ label Game_6
     push this 2
     add
     push this 10
-    call Level.GenerateNewObstacle 1
+    push this 11
+    call Level.GenerateNewObstacle 2
     pop temp 0
     pop pointer 1
     push temp 0
@@ -167,7 +171,7 @@ label Game_10
 label Game_7
     push constant 0
     return
-function Game.Play 2
+function Game.Play 1
     push argument 0
     pop pointer 0
     push constant 1
@@ -182,12 +186,12 @@ label Game_12
     if-goto Game_13
     push pointer 0
     call Game.CalculateCurrentSpeed 1
-    pop local 1
+    pop this 11
     call Layout.EraseCrossLines 0
     pop temp 0
     push this 1
     push this 0
-    push local 1
+    push this 11
     push this 3
     call Layout.PrintCurrentState 4
     pop temp 0
@@ -206,7 +210,7 @@ label Game_12
     call Game.MoveObstacls 1
     pop temp 0
     push this 0
-    push local 1
+    push this 11
     call Score.AddScoreForTickTime 2
     pop temp 0
     push this 4
@@ -235,6 +239,10 @@ label Game_13
     push this 0
     call Layout.PrintLoseScreen 1
     pop temp 0
+    push constant 0
+    pop this 0
+    push constant 0
+    pop this 4
     push constant 0
     return
 function Game.Restart 1
