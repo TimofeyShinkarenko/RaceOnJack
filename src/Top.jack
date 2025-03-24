@@ -1,0 +1,35 @@
+class Top
+{
+    field Array Scores;
+    field int index;
+    constructor Top new()
+    {
+        let Scores = Array.new(10);
+        let index = 0;
+        return this;
+    }
+
+    method void Add(Score score)
+    {
+        let Scores[index] = score.GetCurrentScore();
+        let index = index + 1; 
+        return;
+    }
+
+    method void PrintTop(int y, int x)
+    {
+        var int i;
+        var int score;
+        let i = 0;
+        do Output.moveCursor(y, x);
+        do Output.printString("Top scores:");
+        while (i < index)
+        {
+            let score = Scores[i];
+            do Output.moveCursor(y + 1 + i, x);
+            do Output.printInt(score);
+            let i = i + 1;
+        }
+        return;
+    }
+}

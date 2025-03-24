@@ -12,8 +12,9 @@ class Game
     field int SpeedCoefficient;
     field Level LevelGenerator;
     field int currentSpeed;
+    field Top TopScores;
 
-    constructor Game new()
+    constructor Game new(Top topScores)
     {
         let TickTime = 500;
         let CurrentScore = Score.new();
@@ -27,10 +28,9 @@ class Game
         let StartPossition = Possition.new(240, 208);
         let MyCar = Car.new(StartPossition);
         let LevelGenerator = Level.new();
+        let TopScores = topScores;
 
         let Obstacls = Array.new(NumberOfObstacls);
-        // Заполнить массив препятствиями
-
         return this;
     }
 
@@ -48,6 +48,7 @@ class Game
         }
         do Layout.HideSplashScreen();
         do Layout.PrintField();
+        do TopScores.PrintTop(1, 42);
         let Obstacls = LevelGenerator.CreateLevel(NumberOfObstacls, currentSpeed);
         return;
     }
@@ -128,10 +129,8 @@ class Game
             do MyCar.PrintCar(); //перенести эту строку в ManagedDirection? -> moveLeft/MoveRight
             let carAlive = CheckAlive();
         }
-
+        do TopScores.Add(CurrentScore);
         do Layout.PrintLoseScreen(CurrentScore);
-        let CurrentScore = 0;
-        let TickTime = 0;
         return;
     }
 

@@ -1,5 +1,5 @@
 function Game.new 0
-    push constant 12
+    push constant 13
     call Memory.alloc 1
     pop pointer 0
     push constant 500
@@ -27,6 +27,8 @@ function Game.new 0
     pop this 1
     call Level.new 0
     pop this 10
+    push argument 0
+    pop this 12
     push this 6
     call Array.new 1
     pop this 2
@@ -52,6 +54,11 @@ label Game_1
     call Layout.HideSplashScreen 0
     pop temp 0
     call Layout.PrintField 0
+    pop temp 0
+    push this 12
+    push constant 1
+    push constant 42
+    call Top.PrintTop 3
     pop temp 0
     push this 10
     push this 6
@@ -236,13 +243,13 @@ label Game_14
     pop local 0
     goto Game_12
 label Game_13
+    push this 12
+    push this 0
+    call Top.Add 2
+    pop temp 0
     push this 0
     call Layout.PrintLoseScreen 1
     pop temp 0
-    push constant 0
-    pop this 0
-    push constant 0
-    pop this 4
     push constant 0
     return
 function Game.Restart 1

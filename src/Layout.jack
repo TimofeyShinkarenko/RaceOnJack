@@ -43,8 +43,6 @@ class Layout
         do Layout.PrintSpeedometr(speedometrPosition);
         do Output.moveCursor(1, 9);
         do Output.printString(gameName);
-        do Output.moveCursor(1, 42);
-        do Output.printString("Top scores:");
         return;
     }
 
@@ -60,7 +58,7 @@ class Layout
         do Output.printString(loseMessage);
         do Output.moveCursor(10, 16);
         do Output.printString(scoreMessage);
-        do Output.printInt(score);
+        do Output.printInt(score.GetCurrentScore());
         return;
     }
 

@@ -4,10 +4,12 @@ class Main
     {
         var Game game;
         var boolean isPlaying;
+        var Top topScores;
         let isPlaying = true;
+        let topScores = Top.new();
         while (isPlaying)
         {
-            let game = Game.new();
+            let game = Game.new(topScores);
             do game.StartGame();
             do game.Play();
             let isPlaying = game.Restart();
