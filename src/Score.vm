@@ -29,8 +29,8 @@ function Score.PrintCurrentScore 1
     push constant 58
     call String.appendChar 2
     pop local 0
-    push constant 16
-    push constant 45
+    push constant 20
+    push constant 42
     call Output.moveCursor 2
     pop temp 0
     push local 0

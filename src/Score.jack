@@ -18,7 +18,7 @@ class Score {
         // Отрисовка счёта
         var String scoreMessage;
         let scoreMessage = "Score:";
-        do Output.moveCursor(16, 45);
+        do Output.moveCursor(20, 42);
         do Output.printString(scoreMessage);
         do Output.printInt(CurrentScore);
         return;
