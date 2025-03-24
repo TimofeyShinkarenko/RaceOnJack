@@ -2,11 +2,11 @@ class Layout
 {
     function void PrintSplashScreen () 
     {
-        // Выводим на экран заставку: "Press Enter to start!"
         var String helloMessage;
         let helloMessage = "Press anything to start!";
         do Output.moveCursor(9, 16);
         do Output.printString(helloMessage);
+
         return;
     }
     function void HideSplashScreen()
@@ -20,17 +20,6 @@ class Layout
 
     function void PrintField() 
     {
-        // Тут будет полная отрисовка поля:
-        // Граница поля, боковые панели, но не часть с трассой
-        /*
-        do Screen.drawLine(87, 17, 424, 17);
-        do Screen.drawLine(87, 237, 424, 237);
-
-        do Screen.drawLine(87, 17, 87, 237);
-        do Screen.drawLine(424, 17, 424, 237);
-
-        do Screen.drawLine(179, 17, 179, 237);
-        do Screen.drawLine(356, 17, 356, 237);*/
         var Possition speedometrPosition;
         var String gameName;
         let gameName = "Little Race!";
@@ -43,6 +32,7 @@ class Layout
         do Layout.PrintSpeedometr(speedometrPosition);
         do Output.moveCursor(1, 9);
         do Output.printString(gameName);
+
         return;
     }
 
@@ -52,22 +42,22 @@ class Layout
         var String scoreMessage;
         let scoreMessage = "Final Score:";
         let loseMessage = "Press Enter to restart or ESC to escape.";
-        do Screen.clearScreen(); //всё стирается!!!!!
-        // Выводим на экран заставку: "Press Enter to restart or ESC to escape."
+        do Screen.clearScreen(); 
         do Output.moveCursor(9, 16);
         do Output.printString(loseMessage);
         do Output.moveCursor(10, 16);
         do Output.printString(scoreMessage);
         do Output.printInt(score.GetCurrentScore());
+
         return;
     }
 
     function void PrintCurrentState(Car car, Score score, int currentSpeed, int tick)
     {
-        //+ отрисовывать машину после линий???
         do Layout.PrintCrossLines(MathExtension.mod(tick, 8));
         do score.PrintCurrentScore();
         do Layout.PrintSpeed(currentSpeed);
+
         return;
     }
 
@@ -84,6 +74,7 @@ class Layout
 
             let i = i + 2;
         }
+
         return;
     }
 
@@ -106,6 +97,7 @@ class Layout
         do Output.moveCursor(20, 13);
         do Output.printString(speedMessage);
         do Output.printInt(speed);
+
         return;
     }
 
@@ -161,6 +153,7 @@ class Layout
         do Memory.poke(memAddress +609, 5120);
         do Memory.poke(memAddress +641, 2048);
         do Memory.poke(memAddress +673, 2047);
+        
 	    return;
     }
 }

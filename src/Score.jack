@@ -9,24 +9,25 @@ class Score {
     }
 
     method int GetCurrentScore()
-   {
-      return CurrentScore;
-   }
+    {
+        return CurrentScore;
+    }
 
     method void PrintCurrentScore () 
     {
-        // Отрисовка счёта
         var String scoreMessage;
         let scoreMessage = "Score:";
         do Output.moveCursor(20, 42);
         do Output.printString(scoreMessage);
         do Output.printInt(CurrentScore);
+
         return;
     }
 
     method void AddScoreForTickTime(int currentSpeed) 
     {
         let CurrentScore = CurrentScore + (currentSpeed / 10);
+        
         return;
     }
 

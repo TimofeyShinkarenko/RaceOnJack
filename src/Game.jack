@@ -13,6 +13,7 @@ class Game
     field Level LevelGenerator;
     field int currentSpeed;
     field Top TopScores;
+    field int NotSpawnTimer;
 
     constructor Game new(Top topScores)
     {
@@ -20,22 +21,19 @@ class Game
         let CurrentScore = Score.new();
         let CurrentTick = 0;
         let MinTickTime = 100;
-        let NumberOfObstacls = 7;
+        let NumberOfObstacls = 5;
         let BaseSpeed = 30; 
         let SpeedCoefficient = 2; 
         let currentSpeed = BaseSpeed;
-
+        let NotSpawnTimer = 10;
         let StartPossition = Possition.new(240, 208);
         let MyCar = Car.new(StartPossition);
         let LevelGenerator = Level.new();
         let TopScores = topScores;
-
         let Obstacls = Array.new(NumberOfObstacls);
         return this;
     }
 
-
-    // Ждём пока пользователь нажмёт Enter, чтобы начать игру
     method void StartGame() 
     {
         var char pressedKey;
@@ -58,6 +56,7 @@ class Game
         var boolean IsCarAlive;
         var int i;
         var Possition carPosition;
+        var Possition obstaclePossition;
         var Obstacle obstacle;
         var Obstacle newObstacle;
 
@@ -65,12 +64,18 @@ class Game
         let i = 0;
         while (i < NumberOfObstacls)
         {
-
             let carPosition = MyCar.GetCurrentPossition();
             let obstacle = Obstacls[i];
-            if (carPosition.Equal(obstacle.GetCurrentPossition()))
+            let obstaclePossition = obstacle.GetCurrentPossition();
+            if ((carPosition.GetY() - obstaclePossition.GetY()) < 25)
             {
-                return false;
+                if ((carPosition.GetY() - obstaclePossition.GetY()) > -25)
+                {
+                    if (carPosition.GetX() = obstaclePossition.GetX())
+                    {
+                        return false;
+                    }
+                }
             }
         
             let i = i + 1;
@@ -89,10 +94,14 @@ class Game
         {
             let obstacle = Obstacls[i];
             let obstaclePossition = obstacle.GetCurrentPossition();
-            if (obstaclePossition.GetY() = 256)
+            if (obstaclePossition.GetY() > 255)
             {
                 do obstacle.EraseObstacle();
-                let Obstacls[i] = LevelGenerator.GenerateNewObstacle(currentSpeed);
+                if (NotSpawnTimer < 1)
+                {
+                    let Obstacls[i] = LevelGenerator.GenerateNewObstacle(currentSpeed, MathExtension.mod(CurrentTick, 11));
+                    let NotSpawnTimer = 10;
+                }
             }
             if (obstacle.GetSpawnTick() < CurrentTick)
             {
@@ -117,20 +126,22 @@ class Game
             do Layout.EraseCrossLines();
             do Layout.PrintCurrentState(MyCar, CurrentScore, currentSpeed, CurrentTick);
             do Sys.wait(TickTime);
+            let NotSpawnTimer = NotSpawnTimer - 1;
             let CurrentTick = CurrentTick + 1;
             do LevelGenerator.SetTick(CurrentTick);
             do MoveObstacls();
             do CurrentScore.AddScoreForTickTime(currentSpeed);
             if (TickTime > MinTickTime)
             {
-                let TickTime = TickTime - 30;
+                let TickTime = TickTime - 18;
             }
             do MyCar.ManagedDirection();
-            do MyCar.PrintCar(); //перенести эту строку в ManagedDirection? -> moveLeft/MoveRight
+            do MyCar.PrintCar(); 
             let carAlive = CheckAlive();
         }
         do TopScores.Add(CurrentScore);
         do Layout.PrintLoseScreen(CurrentScore);
+
         return;
     }
 
@@ -148,9 +159,11 @@ class Game
             if (key = 128)
             {
                 do Screen.clearScreen();
+
                 return true;
             }
         }
+
         return true;
     }
     
@@ -158,6 +171,7 @@ class Game
     {
         var int currentSpeed;
         let currentSpeed = BaseSpeed + (SpeedCoefficient * (3000 / TickTime));
+
         return currentSpeed;
     }
 
@@ -169,6 +183,7 @@ class Game
         do StartPossition.dispose();
         do LevelGenerator.dispose();
         do Memory.deAlloc(this);
+        
         return;
     }
 }

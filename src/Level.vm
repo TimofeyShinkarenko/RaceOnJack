@@ -26,7 +26,8 @@ label Level_0
     if-goto Level_1
     push pointer 0
     push argument 2
-    call Level.GenerateNewObstacle 2
+    push local 2
+    call Level.GenerateNewObstacle 3
     pop local 1
     push local 2
     push local 0
@@ -104,6 +105,10 @@ label Level_2
     push constant 3
     call MathExtension.mod 2
     push this 1
+    push argument 2
+    push constant 3
+    call Math.multiply 2
+    add
     call Obstacle.new 3
     pop local 0
     push local 3

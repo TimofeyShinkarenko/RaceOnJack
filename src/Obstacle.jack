@@ -26,7 +26,6 @@ class Obstacle
         return this;
     }
 
-    // Вывод данного экземпляра препятствия
     method void PrintThisObstacle() 
     {
         var int location;
@@ -53,29 +52,29 @@ class Obstacle
     }
 
     method Possition GetCurrentPossition()
-   {
-      return CurrentPossition;
-   }
+    {
+        return CurrentPossition;
+    }
 
-   method int GetType()
-   {
-      return Type;
-   }
+    method int GetType()
+    {
+        return Type;
+    }
 
-   method int GetSize()
-   {
-      return size;
-   }
+    method int GetSize()
+    {
+        return size;
+    }
 
-   method int GetSpawnTick()
+    method int GetSpawnTick()
     {
         return SpawnTick;
     }
 
-   method void dispose()
-   {
-      do Memory.deAlloc(this);
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
 
-      return;
-   }
+        return;
+    }
 }

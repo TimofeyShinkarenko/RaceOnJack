@@ -3,11 +3,13 @@ class Top
     field Array Scores;
     field int index;
     field int Length;
+
     constructor Top new()
     {
         let Length = 10;
         let Scores = Array.new(Length);
         let index = 0;
+        
         return this;
     }
 
@@ -23,6 +25,7 @@ class Top
         {
             let Scores[(Length - 1)] = score.GetCurrentScore();
         }
+
         return;
     }
 
@@ -41,38 +44,36 @@ class Top
             do Output.printInt(score);
             let i = i + 1;
         }
+
         return;
     }
 
-    /** Сортирует массив arr длины length методом пузырьковой сортировки */
     method void Sort(int length) 
     {
         var int i, j, temp;
         var boolean swapped;
 
-        let j = length - 1; // Граница неотсортированной части
-
-        while (j > 0) {
-            let swapped = false; // Флаг для отслеживания перестановок
+        let j = length - 1;
+        while (j > 0) 
+        {
+            let swapped = false;
             let i = 0;
-
-            while (i < j) {
-                if (Scores[i] < Scores[i + 1]) {
-                    // Обмен значениями arr[i] и arr[i+1]
+            while (i < j) 
+            {
+                if (Scores[i] < Scores[i + 1]) 
+                {
                     let temp = Scores[i];
                     let Scores[i] = Scores[i + 1];
                     let Scores[i + 1] = temp;
-
-                    let swapped = true; // Зафиксировали перестановку
+                    let swapped = true;
                 }
                 let i = i + 1;
             }
             if (~swapped) 
             {
-                return; // Если перестановок не было, массив уже отсортирован
+                return; 
             }
-
-            let j = j - 1; // Уменьшаем границу
+            let j = j - 1; 
         }
 
         return;
