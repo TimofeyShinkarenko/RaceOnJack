@@ -5,7 +5,7 @@ class Top
     field int Length;
     constructor Top new()
     {
-        let Length = 3;
+        let Length = 10;
         let Scores = Array.new(Length);
         let index = 0;
         return this;
