@@ -1,9 +1,9 @@
-class Fibonachi
+class Fibonacci
 {
     field int PrevValue;
     field int CurrentValue;
 
-    constructor Fibonachi new()
+    constructor Fibonacci new()
     {
         let PrevValue = 0;
         let CurrentValue = 1;

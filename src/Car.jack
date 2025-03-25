@@ -1,10 +1,10 @@
 class Car 
 {
-    field Possition CurrentPossition;
+    field Position CurrentPosition;
 
-    constructor Car new(Possition StartPossiton)
+    constructor Car new(Position StartPossiton)
     {
-        let CurrentPossition = StartPossiton;
+        let CurrentPosition = StartPossiton;
 
         return this;
     }
@@ -13,7 +13,7 @@ class Car
     {
         var int memAddress; 
         var int location;
-        let location = CurrentPossition.GetLocation();
+        let location = CurrentPosition.GetLocation();
 	    let memAddress = location + 16384;
 	    // column 0 16384
 	    do Memory.poke(memAddress, -128);
@@ -95,7 +95,7 @@ class Car
         var int location;
         var int i;
         let i = 0;
-        let location = CurrentPossition.GetLocation();
+        let location = CurrentPosition.GetLocation();
 	    let memAddress = location + 16384;
         while (i < 34)
         {
@@ -107,9 +107,9 @@ class Car
         return;
     }
 
-    method Possition GetCurrentPossition()
+    method Position GetCurrentPosition()
     {
-        return CurrentPossition;
+        return CurrentPosition;
     }
 
     method void dispose()
@@ -119,16 +119,16 @@ class Car
         return;
     }
 
-    method void MoveRigth() 
+    method void MoveRight() 
     {
-        do CurrentPossition.VectorChangePossition(48, 0);
+        do CurrentPosition.VectorChangePosition(48, 0);
 
         return;
     }
 
     method void MoveLeft() 
     {
-        do CurrentPossition.VectorChangePossition(-48, 0);
+        do CurrentPosition.VectorChangePosition(-48, 0);
 
         return;
     }
@@ -139,7 +139,7 @@ class Car
         let keyToMove = Keyboard.keyPressed();
         if (keyToMove = 130)
         {
-            if (CurrentPossition.GetX() > 220)
+            if (CurrentPosition.GetX() > 220)
             {
                 do EraseCar();
                 do MoveLeft();
@@ -147,10 +147,10 @@ class Car
         }
         if (keyToMove = 132)
         {
-            if (CurrentPossition.GetX() < 250)
+            if (CurrentPosition.GetX() < 250)
             {
                 do EraseCar();
-                do MoveRigth();
+                do MoveRight();
             }
         }
         

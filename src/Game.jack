@@ -2,12 +2,12 @@ class Game
 {
     field Score CurrentScore;
     field Car MyCar;
-    field Array Obstacls;
+    field Array Obstacles;
     field int CurrentTick;
     field int TickTime;
     field int MinTickTime;
-    field int NumberOfObstacls;
-    field Possition StartPossition;
+    field int NumberOfObstacles;
+    field Position StartPosition;
     field int BaseSpeed;
     field int SpeedCoefficient;
     field Level LevelGenerator;
@@ -21,16 +21,16 @@ class Game
         let CurrentScore = Score.new();
         let CurrentTick = 0;
         let MinTickTime = 100;
-        let NumberOfObstacls = 5;
+        let NumberOfObstacles = 5;
         let BaseSpeed = 30; 
         let SpeedCoefficient = 2; 
         let currentSpeed = BaseSpeed;
         let NotSpawnTimer = 10;
-        let StartPossition = Possition.new(240, 208);
-        let MyCar = Car.new(StartPossition);
+        let StartPosition = Position.new(240, 208);
+        let MyCar = Car.new(StartPosition);
         let LevelGenerator = Level.new();
         let TopScores = topScores;
-        let Obstacls = Array.new(NumberOfObstacls);
+        let Obstacles = Array.new(NumberOfObstacles);
         return this;
     }
 
@@ -47,7 +47,7 @@ class Game
         do Layout.HideSplashScreen();
         do Layout.PrintField();
         do TopScores.PrintTop(1, 42);
-        let Obstacls = LevelGenerator.CreateLevel(NumberOfObstacls, currentSpeed);
+        let Obstacles = LevelGenerator.CreateLevel(NumberOfObstacles, currentSpeed);
         return;
     }
 
@@ -55,23 +55,23 @@ class Game
     {
         var boolean IsCarAlive;
         var int i;
-        var Possition carPosition;
-        var Possition obstaclePossition;
+        var Position carPosition;
+        var Position obstaclePosition;
         var Obstacle obstacle;
         var Obstacle newObstacle;
 
         let IsCarAlive = true;
         let i = 0;
-        while (i < NumberOfObstacls)
+        while (i < NumberOfObstacles)
         {
-            let carPosition = MyCar.GetCurrentPossition();
-            let obstacle = Obstacls[i];
-            let obstaclePossition = obstacle.GetCurrentPossition();
-            if ((carPosition.GetY() - obstaclePossition.GetY()) < 25)
+            let carPosition = MyCar.GetCurrentPosition();
+            let obstacle = Obstacles[i];
+            let obstaclePosition = obstacle.GetCurrentPosition();
+            if ((carPosition.GetY() - obstaclePosition.GetY()) < 25)
             {
-                if ((carPosition.GetY() - obstaclePossition.GetY()) > -25)
+                if ((carPosition.GetY() - obstaclePosition.GetY()) > -25)
                 {
-                    if (carPosition.GetX() = obstaclePossition.GetX())
+                    if (carPosition.GetX() = obstaclePosition.GetX())
                     {
                         return false;
                     }
@@ -84,29 +84,29 @@ class Game
         return true;
     }
 
-    method void MoveObstacls()
+    method void MoveObstacles()
     {
         var int i;
         var Obstacle obstacle;
-        var Possition obstaclePossition;
+        var Position obstaclePosition;
         let i = 0;
-        while (i < NumberOfObstacls)
+        while (i < NumberOfObstacles)
         {
-            let obstacle = Obstacls[i];
-            let obstaclePossition = obstacle.GetCurrentPossition();
-            if (obstaclePossition.GetY() > 255)
+            let obstacle = Obstacles[i];
+            let obstaclePosition = obstacle.GetCurrentPosition();
+            if (obstaclePosition.GetY() > 255)
             {
                 do obstacle.EraseObstacle();
                 if (NotSpawnTimer < 1)
                 {
-                    let Obstacls[i] = LevelGenerator.GenerateNewObstacle(currentSpeed, MathExtension.mod(CurrentTick, 11));
+                    let Obstacles[i] = LevelGenerator.GenerateNewObstacle(currentSpeed, MathExtension.mod(CurrentTick, 11));
                     let NotSpawnTimer = 10;
                 }
             }
             if (obstacle.GetSpawnTick() < CurrentTick)
             {
                 do obstacle.EraseObstacle();
-                do obstacle.ChangePossitionForTickTime();
+                do obstacle.ChangePositionForTickTime();
                 do obstacle.PrintThisObstacle();
             }
             let i = i + 1;
@@ -129,7 +129,7 @@ class Game
             let NotSpawnTimer = NotSpawnTimer - 1;
             let CurrentTick = CurrentTick + 1;
             do LevelGenerator.SetTick(CurrentTick);
-            do MoveObstacls();
+            do MoveObstacles();
             do CurrentScore.AddScoreForTickTime(currentSpeed);
             if (TickTime > MinTickTime)
             {
@@ -179,8 +179,8 @@ class Game
     {
         do MyCar.dispose();
         do CurrentScore.dispose();
-        do Obstacls.dispose();
-        do StartPossition.dispose();
+        do Obstacles.dispose();
+        do StartPosition.dispose();
         do LevelGenerator.dispose();
         do Memory.deAlloc(this);
         

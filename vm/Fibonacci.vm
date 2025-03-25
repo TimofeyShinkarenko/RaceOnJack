@@ -1,4 +1,4 @@
-function Fibonachi.new 0
+function Fibonacci.new 0
     push constant 2
     call Memory.alloc 1
     pop pointer 0
@@ -8,7 +8,7 @@ function Fibonachi.new 0
     pop this 1
     push pointer 0
     return
-function Fibonachi.GetNextValue 1
+function Fibonacci.GetNextValue 1
     push argument 0
     pop pointer 0
     push this 0

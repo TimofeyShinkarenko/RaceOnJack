@@ -1,32 +1,80 @@
 function Obstacle.new 0
-    push constant 2
+    push constant 4
     call Memory.alloc 1
     pop pointer 0
     push argument 0
     pop this 0
     push argument 1
     pop this 1
+    push argument 2
+    pop this 2
+    push this 1
+    push constant 0
+    eq
+    not
+    if-goto Obstacle_1
+    push constant 30
+    pop this 3
+    goto Obstacle_0
+label Obstacle_1
+label Obstacle_0
+    push this 1
+    push constant 1
+    eq
+    not
+    if-goto Obstacle_3
+    push constant 28
+    pop this 3
+    goto Obstacle_2
+label Obstacle_3
+label Obstacle_2
+    push this 1
+    push constant 2
+    eq
+    not
+    if-goto Obstacle_5
+    push constant 27
+    pop this 3
+    goto Obstacle_4
+label Obstacle_5
+label Obstacle_4
     push pointer 0
     return
-function Obstacle.PrintThisObstacle 0
+function Obstacle.PrintThisObstacle 1
     push argument 0
     pop pointer 0
+    push this 0
+    call Position.GetLocation 1
+    pop local 0
+    push local 0
     push this 1
-    call ObstacleTexture.PrintObstacle 1
+    call ObstacleTexture.PrintObstacle 2
     pop temp 0
     push constant 0
     return
-function Obstacle.ChangePossitionForTickTime 0
+function Obstacle.EraseObstacle 1
+    push argument 0
+    pop pointer 0
+    push this 0
+    call Position.GetLocation 1
+    pop local 0
+    push local 0
+    push this 1
+    call ObstacleTexture.EraseObstacle 2
+    pop temp 0
+    push constant 0
+    return
+function Obstacle.ChangePositionForTickTime 0
     push argument 0
     pop pointer 0
     push this 0
     push constant 0
     push constant 8
-    call Possition.VectorChangePossition 3
+    call Position.VectorChangePosition 3
     pop temp 0
     push constant 0
     return
-function Obstacle.GetCurrentPossition 0
+function Obstacle.GetCurrentPosition 0
     push argument 0
     pop pointer 0
     push this 0
@@ -35,6 +83,16 @@ function Obstacle.GetType 0
     push argument 0
     pop pointer 0
     push this 1
+    return
+function Obstacle.GetSize 0
+    push argument 0
+    pop pointer 0
+    push this 3
+    return
+function Obstacle.GetSpawnTick 0
+    push argument 0
+    pop pointer 0
+    push this 2
     return
 function Obstacle.dispose 0
     push argument 0

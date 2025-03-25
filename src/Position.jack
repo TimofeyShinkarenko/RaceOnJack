@@ -1,9 +1,9 @@
-class Possition
+class Position
 {
     field int X;
     field int Y;
    
-    constructor Possition new(int x, int y)
+    constructor Position new(int x, int y)
     {
         let X = x;
         let Y = y;
@@ -11,7 +11,7 @@ class Possition
         return this;
     }
 
-    method void VectorChangePossition (int x, int y) 
+    method void VectorChangePosition (int x, int y) 
     {
         let X = X + x;
         let Y = Y + y;
@@ -29,7 +29,7 @@ class Possition
         return X;
     }
 
-    method boolean Equal(Possition other)
+    method boolean Equal(Position other)
     {
         if (other.GetX() = X & other.GetY() = Y)
         {
@@ -46,7 +46,7 @@ class Possition
         return;
     }
 
-    method boolean IsUnder(Possition other)
+    method boolean IsUnder(Position other)
     {
         if (other.GetY() < Y)
         {

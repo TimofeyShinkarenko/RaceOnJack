@@ -1,4 +1,4 @@
-function Possition.new 0
+function Position.new 0
     push constant 2
     call Memory.alloc 1
     pop pointer 0
@@ -8,7 +8,7 @@ function Possition.new 0
     pop this 1
     push pointer 0
     return
-function Possition.VectorChangePossition 0
+function Position.VectorChangePosition 0
     push argument 0
     pop pointer 0
     push this 0
@@ -21,39 +21,39 @@ function Possition.VectorChangePossition 0
     pop this 1
     push constant 0
     return
-function Possition.GetY 0
+function Position.GetY 0
     push argument 0
     pop pointer 0
     push this 1
     return
-function Possition.GetX 0
+function Position.GetX 0
     push argument 0
     pop pointer 0
     push this 0
     return
-function Possition.Equal 0
+function Position.Equal 0
     push argument 0
     pop pointer 0
     push argument 1
-    call Possition.GetX 1
+    call Position.GetX 1
     push this 0
     eq
     push argument 1
-    call Possition.GetY 1
+    call Position.GetY 1
     and
     push this 1
     eq
     not
-    if-goto Possition_1
+    if-goto Position_1
     push constant 1
     neg
     return
-    goto Possition_0
-label Possition_1
-label Possition_0
+    goto Position_0
+label Position_1
+label Position_0
     push constant 0
     return
-function Possition.dispose 0
+function Position.dispose 0
     push argument 0
     pop pointer 0
     push pointer 0
@@ -61,24 +61,24 @@ function Possition.dispose 0
     pop temp 0
     push constant 0
     return
-function Possition.IsUnder 0
+function Position.IsUnder 0
     push argument 0
     pop pointer 0
     push argument 1
-    call Possition.GetY 1
+    call Position.GetY 1
     push this 1
     lt
     not
-    if-goto Possition_3
+    if-goto Position_3
     push constant 1
     neg
     return
-    goto Possition_2
-label Possition_3
-label Possition_2
+    goto Position_2
+label Position_3
+label Position_2
     push constant 0
     return
-function Possition.GetLocation 1
+function Position.GetLocation 1
     push argument 0
     pop pointer 0
     push this 0

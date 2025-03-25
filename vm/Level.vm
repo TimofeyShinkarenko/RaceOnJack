@@ -2,7 +2,7 @@ function Level.new 0
     push constant 3
     call Memory.alloc 1
     pop pointer 0
-    call Fibonachi.new 0
+    call Fibonacci.new 0
     pop this 0
     push constant 0
     pop this 1
@@ -56,7 +56,7 @@ function Level.GenerateNewObstacle 4
     push argument 0
     pop pointer 0
     push this 0
-    call Fibonachi.GetNextValue 1
+    call Fibonacci.GetNextValue 1
     push constant 5
     add
     pop local 1
@@ -94,7 +94,7 @@ label Level_2
     push constant 192
     add
     push constant 0
-    call Possition.new 2
+    call Position.new 2
     pop local 2
     push local 2
     push local 1

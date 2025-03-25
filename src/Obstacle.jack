@@ -1,13 +1,13 @@
 class Obstacle 
 {
-    field Possition CurrentPossition;
+    field Position CurrentPosition;
     field int Type;
     field int SpawnTick;
     field int size;
 
-    constructor Obstacle new(Possition startPossition, int type, int tick)
+    constructor Obstacle new(Position startPosition, int type, int tick)
     {
-        let CurrentPossition = startPossition;
+        let CurrentPosition = startPosition;
         let Type = type;
         let SpawnTick = tick;
         if (Type = 0)
@@ -29,7 +29,7 @@ class Obstacle
     method void PrintThisObstacle() 
     {
         var int location;
-        let location = CurrentPossition.GetLocation();
+        let location = CurrentPosition.GetLocation();
         do ObstacleTexture.PrintObstacle(location, Type);
 
         return;
@@ -38,22 +38,22 @@ class Obstacle
     method void EraseObstacle() 
     {
         var int location;
-        let location = CurrentPossition.GetLocation();
+        let location = CurrentPosition.GetLocation();
         do ObstacleTexture.EraseObstacle(location, Type);
 
         return;
     }
 
-    method void ChangePossitionForTickTime()
+    method void ChangePositionForTickTime()
     {
-        do CurrentPossition.VectorChangePossition(0, 8);
+        do CurrentPosition.VectorChangePosition(0, 8);
 
         return;
     }
 
-    method Possition GetCurrentPossition()
+    method Position GetCurrentPosition()
     {
-        return CurrentPossition;
+        return CurrentPosition;
     }
 
     method int GetType()
