@@ -7,15 +7,15 @@ class Layout
         do Output.moveCursor(9, 16);
         do Output.printString(helloMessage);
 
-        return;
+        return;// Избыточные return в void-функциях
     }
     function void HideSplashScreen()
     {
         var String nothing;
-        let nothing = "                         ";
+        let nothing = "                         "; // Неточное количество пробелов
         do Output.moveCursor(9, 16);
         do Output.printString(nothing);
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void PrintField() 
@@ -26,14 +26,14 @@ class Layout
         let speedometerPosition = Position.new(130, 195);
         do Screen.setColor(true);
         do Screen.drawLine(174, 0, 174, 256);
-        do Screen.drawLine(175, 0, 175, 256);
+        do Screen.drawLine(175, 0, 175, 256); // можно вынести в отдельный метод рисования толстой линии
         do Screen.drawLine(326, 0, 326, 256);
-        do Screen.drawLine(327, 0, 327, 256);
+        do Screen.drawLine(327, 0, 327, 256); //можно вынести в отдельный метод рисования толстой линии
         do Layout.PrintSpeedometer(speedometerPosition);
         do Output.moveCursor(1, 9);
         do Output.printString(gameName);
 
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void PrintLoseScreen (Score score) 
@@ -49,7 +49,7 @@ class Layout
         do Output.printString(scoreMessage);
         do Output.printInt(score.GetCurrentScore());
 
-        return;
+        return; //Избыточные return в void-функциях
     }
 
     function void PrintCurrentState(Car car, Score score, int currentSpeed, int tick)
@@ -58,7 +58,7 @@ class Layout
         do score.PrintCurrentScore();
         do Layout.PrintSpeed(currentSpeed);
 
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void PrintCrossLines(int offset)
@@ -75,7 +75,7 @@ class Layout
             let i = i + 2;
         }
 
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void EraseCrossLines() 
@@ -87,7 +87,7 @@ class Layout
         do Screen.drawLine(280, 0, 280, 256);
         do Screen.setColor(false);
 
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void PrintSpeed(int speed)
@@ -98,7 +98,7 @@ class Layout
         do Output.printString(speedMessage);
         do Output.printInt(speed);
 
-        return;
+        return; // Избыточные return в void-функциях
     }
 
     function void PrintSpeedometer(Position position)
@@ -154,6 +154,6 @@ class Layout
         do Memory.poke(memAddress +641, 2048);
         do Memory.poke(memAddress +673, 2047);
         
-	    return;
+	    return; // Избыточные return в void-функциях
     }
 }
