@@ -16,6 +16,6 @@ class Main
             do game.dispose();
         }
 
-        return;
+        return; //Избыточные return в void-функциях
     }
 }
