@@ -17,7 +17,7 @@ class ObstacleTexture
             do ObstacleTexture.PrintVariant2(location);
         }
 
-        return;
+        return; //Избыточные return в void-функциях
     }
 
     function void PrintVariant0(int location) 
