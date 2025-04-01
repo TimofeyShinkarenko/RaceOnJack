@@ -48,7 +48,7 @@ class Game
         do Layout.PrintField();
         do TopScores.PrintTop(1, 42);
         let Obstacles = LevelGenerator.CreateLevel(NumberOfObstacles, currentSpeed);
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method boolean CheckAlive()
@@ -112,7 +112,7 @@ class Game
             let i = i + 1;
         }
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method void Play()
@@ -142,7 +142,7 @@ class Game
         do TopScores.Add(CurrentScore);
         do Layout.PrintLoseScreen(CurrentScore);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method boolean Restart()
@@ -170,7 +170,7 @@ class Game
     method int CalculateCurrentSpeed()
     {
         var int currentSpeed;
-        let currentSpeed = BaseSpeed + (SpeedCoefficient * (3000 / TickTime));
+        let currentSpeed = BaseSpeed + (SpeedCoefficient * (3000 / TickTime)); //Возможно деление на ноль (TickTime может уменьшаться до MinTickTime)
 
         return currentSpeed;
     }
@@ -184,6 +184,6 @@ class Game
         do LevelGenerator.dispose();
         do Memory.deAlloc(this);
         
-        return;
+        return; //Избыточные return в void-методах
     }
 }

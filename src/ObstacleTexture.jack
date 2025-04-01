@@ -17,7 +17,7 @@ class ObstacleTexture
             do ObstacleTexture.PrintVariant2(location);
         }
 
-        return;
+        return; //Избыточные return в void-функциях
     }
 
     function void PrintVariant0(int location) 
@@ -87,7 +87,7 @@ class ObstacleTexture
         do Memory.poke(memAddress +897, 1);
         do Memory.poke(memAddress +929, 1);
 
-        return;
+        return; //Избыточные return в void-фунциях
     }
 
     function void PrintVariant1(int location) 
@@ -136,7 +136,7 @@ class ObstacleTexture
         do Memory.poke(memAddress +833, 56);
         do Memory.poke(memAddress +865, 0);
 
-        return;
+        return;//Избыточные return в void-фунциях
     }
 
     function void PrintVariant2(int location) 
@@ -200,7 +200,7 @@ class ObstacleTexture
         do Memory.poke(memAddress +801, 639);
         do Memory.poke(memAddress +833, 384);
 
-        return;
+        return; //Избыточные return в void-фунциях
     }
 
     function void EraseObstacle(int location, int Type)
@@ -229,6 +229,6 @@ class ObstacleTexture
             let i = i + 1;
         }
         
-        return;
+        return; //Избыточные return в void-фунциях
     }
 }

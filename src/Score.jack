@@ -21,20 +21,20 @@ class Score {
         do Output.printString(scoreMessage);
         do Output.printInt(CurrentScore);
 
-        return;
+        return; // Избыточные return в void-методах
     }
 
     method void AddScoreForTickTime(int currentSpeed) 
     {
         let CurrentScore = CurrentScore + (currentSpeed / 10);
         
-        return;
+        return; // Избыточные return в void-методах
     }
 
     method void dispose()
     {
       do Memory.deAlloc(this);
 
-      return;
+      return; // Избыточные return в void-методах
     }
 }

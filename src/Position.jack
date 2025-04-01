@@ -16,7 +16,7 @@ class Position
         let X = X + x;
         let Y = Y + y;
 
-        return;
+        return; // Избыточные return в void-методах
     }
 
     method int GetY()
@@ -43,7 +43,7 @@ class Position
     {
         do Memory.deAlloc(this);
 
-        return;
+        return; // Избыточные return в void-методах
     }
 
     method boolean IsUnder(Position other)
@@ -59,7 +59,7 @@ class Position
     method int GetLocation()
     {
         var int location;
-        let location = (X / 16) + (Y * 32);
+        let location = (X / 16) + (Y * 32); // Возможна потеря точности при делении
 
         return location;
     }

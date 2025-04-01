@@ -34,7 +34,7 @@ class Level
     {
         let Tick = tick;
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method Obstacle GenerateNewObstacle(int speed, int seed)
@@ -61,6 +61,6 @@ class Level
     {
         do Memory.deAlloc(this);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 }

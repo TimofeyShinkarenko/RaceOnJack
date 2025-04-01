@@ -32,7 +32,7 @@ class Obstacle
         let location = CurrentPosition.GetLocation();
         do ObstacleTexture.PrintObstacle(location, Type);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method void EraseObstacle() 
@@ -41,14 +41,14 @@ class Obstacle
         let location = CurrentPosition.GetLocation();
         do ObstacleTexture.EraseObstacle(location, Type);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method void ChangePositionForTickTime()
     {
         do CurrentPosition.VectorChangePosition(0, 8);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 
     method Position GetCurrentPosition()
@@ -75,6 +75,6 @@ class Obstacle
     {
         do Memory.deAlloc(this);
 
-        return;
+        return; //Избыточные return в void-методах
     }
 }
